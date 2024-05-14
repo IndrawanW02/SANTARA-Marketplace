@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SANTARA Marketplace", "SANTARA Marketplace\SANTARA Marketplace.csproj", "{60216948-93A1-462D-9F9F-5D7DEC24F495}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60216948-93A1-462D-9F9F-5D7DEC24F495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60216948-93A1-462D-9F9F-5D7DEC24F495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60216948-93A1-462D-9F9F-5D7DEC24F495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60216948-93A1-462D-9F9F-5D7DEC24F495}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D85319E4-E2D9-43E1-BA51-78AACDBF7515}
+	EndGlobalSection
+EndGlobal
