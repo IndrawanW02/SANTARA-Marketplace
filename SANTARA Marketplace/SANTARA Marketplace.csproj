@@ -71,6 +71,9 @@
     <Content Include="App_Data\SantaraDatabase_log.ldf">
       <DependentUpon>SantaraDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Styles\HeaderAndFooter_Styles.css" />
+    <Content Include="Views\Home_Page.aspx" />
+    <Content Include="Views\WebForm1.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +84,20 @@
     </Compile>
     <Compile Include="Template\HeaderAndFooter.Master.designer.cs">
       <DependentUpon>HeaderAndFooter.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home_Page.aspx.cs">
+      <DependentUpon>Home_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home_Page.aspx.designer.cs">
+      <DependentUpon>Home_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -96,7 +113,6 @@
   <ItemGroup>
     <Folder Include="Factory\" />
     <Folder Include="Repository\" />
-    <Folder Include="Views\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
