@@ -96,16 +96,36 @@ header nav #shopItem span{
 }
 
 header nav #shopItem span:last-child {
-    margin-right: 0;
+    margin-right: 0px;
 }
 
 header nav #storeItem {
     margin: 0px 24px;
-    outline: 5px solid red;
-    border-right: 12px solid #D9D9D9;
-    border-left: 1px solid #D9D9D9;
+}
+
+header nav .separator {
+    width: 1px;
+    height: 24px;
+    background: #D9D9D9;
 }
 
 header nav #registrationItem {
     display: flex;
+    margin-left: 24px;
+    margin-right: 12px;
+}
+
+header nav #registrationItem h3 {
+    margin: 0px 12px 0px 0px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    background: #F5F5FA;
+    color: #D7AD0D;
+    font-size: 15px;
+}
+
+header nav #registrationItem h3:last-child {
+    margin-right: 0px;
+    color: #F5F5FA;
+    background: #D7AD0D;
 }

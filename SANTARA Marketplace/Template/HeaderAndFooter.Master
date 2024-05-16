@@ -24,11 +24,13 @@
                     <div id="shopItem">
                         <span class="maki--shoe"></span>
                         <span class="lucide--shopping-basket"></span>
-                        <span class="basil--invoice-solid" ></span>
+                        <span class="basil--invoice-solid"></span>
                     </div>
+                    <div class="separator"></div>
 
                     <span class="mdi--shop" id="storeItem"></span>
 
+                    <div class="separator"></div>
                     <div id="registrationItem">
                         <h3>Sign in</h3>
                         <h3>Sign Up</h3>
