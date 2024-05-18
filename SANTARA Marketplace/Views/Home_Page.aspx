@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Template/HeaderAndFooter.Master" AutoEventWireup="true" CodeBehind="Home_Page.aspx.cs" Inherits="SANTARA_Marketplace.Views.Home_Page" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link href="../Styles/Home_Page.css" rel="stylesheet" />
 
-    <h1>this is the content</h1>\
-    <h1>test</h1>
-    <h2>o2</h2>
+    <div class="img">ss</div>
 
 </asp:Content>
