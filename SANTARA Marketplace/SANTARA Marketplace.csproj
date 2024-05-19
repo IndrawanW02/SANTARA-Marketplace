@@ -109,6 +109,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Fonts\RosmatikaRegular-BWA45.ttf" />
     <None Include="packages.config" />
     <Content Include="Template\HeaderAndFooter.Master" />
     <None Include="Web.Debug.config">

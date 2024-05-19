@@ -2,6 +2,11 @@
     margin: 0px;
 }
 
+@font-face {
+    font-family: 'rosmatikaregular-bwa45';
+    src: url('../fonts/rosmatikaregular-bwa45.ttf') format('truetype');
+}
+
 .maki--shoe {
     display: inline-block;
     width: 30px;
@@ -14,6 +19,11 @@
     mask-repeat: no-repeat;
     -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%;
+    transition: background-color 0.3s ease;
+}
+
+.maki--shoe:hover {
+    background-color: #FFCC01;
 }
 
 .lucide--shopping-basket {
@@ -28,6 +38,11 @@
     mask-repeat: no-repeat;
     -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%;
+    transition: background-color 0.3s ease;
+}
+
+.lucide--shopping-basket:hover {
+    background-color: #FFCC01;
 }
 
 .basil--invoice-solid {
@@ -42,6 +57,11 @@
     mask-repeat: no-repeat;
     -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%;
+    transition: background-color 0.3s ease;
+}
+
+.basil--invoice-solid:hover {
+    background-color: #FFCC01;
 }
 
 .mdi--shop {
@@ -56,14 +76,59 @@
     mask-repeat: no-repeat;
     -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%;
+    transition: background-color 0.3s ease;
 }
 
-.open-sans-title {
-    font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 800;
-    font-style: normal;
-    font-variation-settings: "wdth" 100;
+.mdi--shop:hover {
+    background-color: #FFCC01;
+}
+
+.basil--instagram-outline {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M16 7a1 1 0 1 1 2 0a1 1 0 0 1-2 0'/%3E%3Cpath fill='%23000' fill-rule='evenodd' d='M12 7.25a4.75 4.75 0 1 0 0 9.5a4.75 4.75 0 0 0 0-9.5M8.75 12a3.25 3.25 0 1 1 6.5 0a3.25 3.25 0 0 1-6.5 0' clip-rule='evenodd'/%3E%3Cpath fill='%23000' fill-rule='evenodd' d='M17.258 2.833a47.721 47.721 0 0 0-10.516 0c-2.012.225-3.637 1.81-3.873 3.832a45.922 45.922 0 0 0 0 10.67c.236 2.022 1.86 3.607 3.873 3.832a47.77 47.77 0 0 0 10.516 0c2.012-.225 3.637-1.81 3.873-3.832a45.914 45.914 0 0 0 0-10.67c-.236-2.022-1.86-3.607-3.873-3.832m-10.35 1.49a46.22 46.22 0 0 1 10.184 0c1.33.15 2.395 1.199 2.55 2.517a44.421 44.421 0 0 1 0 10.32a2.89 2.89 0 0 1-2.55 2.516a46.217 46.217 0 0 1-10.184 0a2.89 2.89 0 0 1-2.55-2.516a44.421 44.421 0 0 1 0-10.32a2.89 2.89 0 0 1 2.55-2.516' clip-rule='evenodd'/%3E%3C/svg%3E");
+    background-color: #5F22E9;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+
+.bi--twitter-x {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07l-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z'/%3E%3C/svg%3E");
+    background-color: #5F22E9;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+
+.akar-icons--facebook-fill {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none'%3E%3Cg clip-path='url(%23akarIconsFacebookFill0)'%3E%3Cpath fill='%235f22e9' fill-rule='evenodd' d='M0 12.067C0 18.034 4.333 22.994 10 24v-8.667H7V12h3V9.333c0-3 1.933-4.666 4.667-4.666c.866 0 1.8.133 2.666.266V8H15.8c-1.467 0-1.8.733-1.8 1.667V12h3.2l-.533 3.333H14V24c5.667-1.006 10-5.966 10-11.933C24 5.43 18.6 0 12 0S0 5.43 0 12.067' clip-rule='evenodd'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='akarIconsFacebookFill0'%3E%3Cpath fill='white' d='M0 0h24v24H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/g%3E%3C/svg%3E");
+}
+
+
+
+.title {
+    font-family: 'rosmatikaregular-bwa45';
+    font-size: 45px;
+    font-weight: 600;
+    color: #FFCC01;
+    margin: 0px 12px;
+    text-decoration: none;
 }
 
 header {
@@ -72,13 +137,6 @@ header {
     margin: 0px;
     padding: 12px 50px;
     background-color: #592E6D;
-}
-
-header h1 {
-    margin: 0px 12px;
-    justify-content: center;
-    font-size: 45px;
-    color: #FFCC01
 }
 
 header nav {
@@ -128,4 +186,66 @@ header nav #registrationItem h3:last-child {
     margin-right: 0px;
     color: #F5F5FA;
     background: #D7AD0D;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #141D2A;
+    padding: 100px 165px;
+}
+
+footer .WebsiteCopyright a{
+    margin: 0px 0px 5px 0px;
+}
+
+footer .WebsiteCopyright p{
+    margin: 0px 0px 5px 0px;
+    font-family: 'rosmatikaregular-bwa45';
+    font-weight: lighter;
+    font-style: italic;
+    font-size: 1em;
+    color: #FFCC01;
+    letter-spacing: 0.1em;
+}
+
+footer .FooterContent{
+    display: flex;
+    gap: 100px;
+}
+
+footer h3 {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 20px;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    color: #FFFFFF;
+    margin: 0px 0px 6px 0px;
+}
+
+footer h4 {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 14px;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    color: #6D6D6D;
+    margin: 0px 0px 6px 0px;
+}
+
+footer .SocialMedia #socialMediaList {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+footer .SocialMedia #socialMediaList span {
+    margin-right: 12px;
+}
+
+footer .SocialMedia #socialMediaList span:last-child {
+    margin-right: 0px;
 }
