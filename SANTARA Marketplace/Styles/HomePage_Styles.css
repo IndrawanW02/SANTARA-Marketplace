@@ -1,0 +1,140 @@
+﻿body {
+    background-color: #F5F5FA;
+}
+
+@font-face {
+    font-family: 'oswald';
+    src: url('../fonts/oswald.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'opensans';
+    src: url('../fonts/opensans.ttf') format('truetype');
+}
+
+.Container {
+    display: flex;
+    justify-content: center;
+}
+
+.Content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1350px;
+}
+
+.AdvertisementSlider {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /*padding: 50px 120px;*/
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-radius: 16px;
+}
+
+.AdvertisementSlider .Advertisement1 {
+    width: 100%;
+}
+
+.AdvertisementSlider .Advertisement1 img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.MostPopular {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    overflow-x: auto;
+    margin: 100px 0px;
+}
+
+.MostPopular h1 {
+    font-family: 'oswald';
+    font-weight: 700;
+    font-size: 6em;
+    text-align: center;
+    letter-spacing: 4px;
+    margin: 0px 0px 36px 0px;
+}
+
+/*.MostPopular::-webkit-scrollbar {
+    display: none;*/ /* Chrome, Safari and Opera: Hide scrollbar */
+/*}*/
+
+.CardContainer {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    overflow-x: auto;
+    gap: 20px;
+}
+
+.Categories {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.Categories .CategoryNav {
+    display: flex;
+    position: relative;
+    width: 400px;
+    height: 180px;
+    justify-content: end;
+    align-content: center;
+    align-items: center;
+}
+
+.CategoryIcon {
+    width: 180px;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.CategoryIcon img {
+    width: 100%; /* Make the image fill the width of its container */
+    height: auto; /* Maintain aspect ratio and adjust height accordingly */
+    display: block;
+    clip-path: circle(50% at 50% 50%);
+    background-color: #FFFFFF;
+}
+
+.Categories .CategoryName {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    top: 25%;
+    left: 20%;
+    background-color: #6D1950;
+    padding: 36px 12px 36px 72px;
+    border-radius: 16px;
+    border: 2px solid rgba(189, 189, 189, 0.2);
+    z-index: 1;
+}
+
+.Categories .CategoryName p {
+    width: auto;
+    text-align: center;
+    text-decoration: none;
+    margin: 0px;
+    font-family: 'opensans';
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 30px;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    color: white;
+}

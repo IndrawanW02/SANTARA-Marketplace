@@ -43,7 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -71,14 +79,104 @@
     <Content Include="App_Data\SantaraDatabase_log.ldf">
       <DependentUpon>SantaraDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Assets\fe--arrow-down.svg" />
+    <Content Include="Assets\fe--arrow-up.svg" />
+    <Content Include="Assets\file.png" />
+    <Content Include="Assets\healthicons--magnifying-glass.svg" />
+    <Content Include="Assets\KidIcon.png" />
+    <Content Include="Assets\KidProductHeader.jpg" />
+    <Content Include="Assets\ManIcon.png" />
+    <Content Include="Assets\MenProductHeader.jpg" />
+    <Content Include="Assets\Screenshot %284%29.png" />
+    <Content Include="Assets\WomanIcon.png" />
+    <Content Include="Assets\WomanProductHeader.png" />
+    <Content Include="Model\SantaraModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SantaraModel.edmx</DependentUpon>
+      <LastGenOutput>SantaraModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\SantaraModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SantaraModel.edmx</DependentUpon>
+      <LastGenOutput>SantaraModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Script\HomepageScript.js" />
+    <Content Include="Styles\CataloguePage_Styles.css" />
+    <Content Include="Styles\ProductCard_Styles.css" />
     <Content Include="Styles\HeaderAndFooter_Styles.css" />
-    <Content Include="Views\Catalogue_Page.aspx" />
-    <Content Include="Views\Home_Page.aspx" />
-    <Content Include="Views\WebForm1.aspx" />
+    <Content Include="Styles\HomePage_Styles.css" />
+    <Content Include="Styles\[Category]ProductPage_Styles.css" />
+    <Content Include="Views\CataloguePage.aspx" />
+    <Content Include="Views\HomePage.aspx" />
+    <Content Include="Views\KidProductPage.aspx" />
+    <Content Include="Views\ManProductPage.aspx" />
+    <Content Include="Views\WomanProductPage.aspx" />
+    <Content Include="Views\ProductPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Factory\AdvertisementFactory.cs" />
+    <Compile Include="Factory\ImageFactory.cs" />
+    <Compile Include="Handlers\ProductHandler.cs" />
+    <Compile Include="Model\Address.cs">
+      <DependentUpon>SantaraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Advertisement.cs">
+      <DependentUpon>SantaraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Product.cs">
+      <DependentUpon>SantaraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ProductImage.cs">
+      <DependentUpon>SantaraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rating.cs">
+      <DependentUpon>SantaraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SantaraModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SantaraModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SantaraModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SantaraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SantaraModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SantaraModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ShoppingCart.cs">
+      <DependentUpon>SantaraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Storage.cs">
+      <DependentUpon>SantaraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Store.cs">
+      <DependentUpon>SantaraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StoreStatistic.cs">
+      <DependentUpon>SantaraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Transaction.cs">
+      <DependentUpon>SantaraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TransactionDetail.cs">
+      <DependentUpon>SantaraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>SantaraModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AddressRepository.cs" />
+    <Compile Include="Repositories\AdvertisementRepository.cs" />
+    <Compile Include="Repositories\DatabaseSingleton.cs" />
+    <Compile Include="Repositories\ImageRepository.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\StoreRepository.cs" />
     <Compile Include="Template\HeaderAndFooter.Master.cs">
       <DependentUpon>HeaderAndFooter.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -86,30 +184,62 @@
     <Compile Include="Template\HeaderAndFooter.Master.designer.cs">
       <DependentUpon>HeaderAndFooter.Master</DependentUpon>
     </Compile>
-    <Compile Include="Views\Catalogue_Page.aspx.cs">
-      <DependentUpon>Catalogue_Page.aspx</DependentUpon>
+    <Compile Include="Views\CataloguePage.aspx.cs">
+      <DependentUpon>CataloguePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Catalogue_Page.aspx.designer.cs">
-      <DependentUpon>Catalogue_Page.aspx</DependentUpon>
+    <Compile Include="Views\CataloguePage.aspx.designer.cs">
+      <DependentUpon>CataloguePage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Home_Page.aspx.cs">
-      <DependentUpon>Home_Page.aspx</DependentUpon>
+    <Compile Include="Views\HomePage.aspx.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Home_Page.aspx.designer.cs">
-      <DependentUpon>Home_Page.aspx</DependentUpon>
+    <Compile Include="Views\HomePage.aspx.designer.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Views\KidProductPage.aspx.cs">
+      <DependentUpon>KidProductPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Views\KidProductPage.aspx.designer.cs">
+      <DependentUpon>KidProductPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManProductPage.aspx.cs">
+      <DependentUpon>ManProductPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ManProductPage.aspx.designer.cs">
+      <DependentUpon>ManProductPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WomanProductPage.aspx.cs">
+      <DependentUpon>WomanProductPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\WomanProductPage.aspx.designer.cs">
+      <DependentUpon>WomanProductPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductPage.aspx.cs">
+      <DependentUpon>ProductPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ProductPage.aspx.designer.cs">
+      <DependentUpon>ProductPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Fonts\RosmatikaRegular-BWA45.ttf" />
+    <Content Include="Fonts\Rosmatika.ttf" />
+    <Content Include="Fonts\Oswald.ttf" />
+    <Content Include="Fonts\OpenSans.ttf" />
+    <EntityDeploy Include="Model\SantaraModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SantaraModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\SantaraModel.edmx.diagram">
+      <DependentUpon>SantaraModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Fonts\Inter.ttf" />
+    <Content Include="Fonts\SourceSerif4.ttf" />
     <None Include="packages.config" />
     <Content Include="Template\HeaderAndFooter.Master" />
     <None Include="Web.Debug.config">
@@ -119,9 +249,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Factory\" />
-    <Folder Include="Repository\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

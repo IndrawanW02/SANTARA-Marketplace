@@ -1,0 +1,120 @@
+﻿body {
+    background-color: #F5F5FA;
+}
+
+@font-face {
+    font-family: 'opensans';
+    src: url('../fonts/opensans.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'oswald';
+    src: url('../fonts/oswald.ttf') format('truetype');
+}
+
+.Page-Path {
+    display: flex;
+    flex-direction: row;
+    background-color: #E4E4E4;
+    border-bottom: 1px solid #BDBDBD;
+    margin: 0px;
+}
+
+.Page-Path div {
+    display: flex;
+    flex-direction: row;
+    padding: 6px 62px;
+}
+
+.NavText:not(:last-child) {
+    font-family: 'opensans';
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 14px;
+    font-style: italic;
+    font-variation-settings: "wdth" 100;
+    color: #6D6D6D;
+    margin: 0px 12px 0px 0px;
+}
+
+.NavText:last-child {
+    font-family: 'opensans';
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 14px;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    color: #000000;
+    margin: 0px;
+}
+
+.content {
+    padding: 120px 0px 120px 0px;
+}
+
+.product-category-content {
+    padding: 0 120px 0px 120px;
+    margin-bottom: 120px;
+}
+
+.category-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    margin-bottom: 36px;
+}
+
+.category-name {
+    width: 400px;
+    height: 70px;
+    clip-path: polygon(0 0, 100% 0%, 70% 100%, 0 100%);
+    display: flex;
+    align-items: center;
+    background: linear-gradient( to right, rgb(0 0 0 / 0.4), rgb(0 0 0 / 0));
+    background-color: #BD4545;
+    border-radius: 6px;
+    padding: 12px 24px;
+    filter: url('#flt_tag');
+}
+
+.category-name h1 {
+    margin: 0;
+    font-family: 'oswald';
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 3em;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    letter-spacing: 0.1em;
+    color: white;
+}
+
+.category-header a {
+    font-family: 'opensans';
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 24px;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    text-decoration: underline;
+    align-content: end;
+    cursor: pointer;
+}
+
+.flt_svg {
+    visibility: hidden;
+    position: absolute;
+    width: 0px;
+    height: 0px;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    overflow-x: auto;
+    gap: 20px;
+}

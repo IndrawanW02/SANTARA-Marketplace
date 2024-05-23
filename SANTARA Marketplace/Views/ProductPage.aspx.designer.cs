@@ -11,7 +11,7 @@ namespace SANTARA_Marketplace.Views
 {
 
 
-    public partial class WebForm1
+    public partial class ProductPage
     {
     }
 }

@@ -22,7 +22,7 @@
 
                 <nav>
                     <div id="shopItem">
-                        <span class="maki--shoe"></span>
+                        <a href="../Views/CataloguePage.aspx"><span class="maki--shoe"></span></a>
                         <span class="lucide--shopping-basket"></span>
                         <span class="basil--invoice-solid"></span>
                     </div>
