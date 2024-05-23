@@ -18,7 +18,7 @@
     <form id="form1" runat="server">
         <div>
             <header>
-                <a class="title" href="../Views/Home_Page.aspx">SANTARA.</a>
+                <a class="title" href="../Views/HomePage.aspx">SANTARA.</a>
 
                 <nav>
                     <div id="shopItem">
@@ -43,7 +43,7 @@
 
             <footer>
                 <div class="WebsiteCopyright">
-                    <a class="title" href="../Views/Home_Page.aspx">SANTARA.</a>
+                    <a class="title" href="../Views/HomePage.aspx">SANTARA.</a>
                     <p>~Langkah Lokal, Gaya Global</p>
                     <h4>&copy; 2024</h4>
                 </div>
