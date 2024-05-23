@@ -11,7 +11,7 @@ namespace SANTARA_Marketplace.Controllers
     {
         public static List<object> GetMostPopularShoes()
         {
-            return ProductHandler.GetMostPopularProductInfo().Take(5).ToList();
+            return ProductHandler.GetMostPopularProductInfo();
         }
 
         public static List<object> GetWomanShoes()
