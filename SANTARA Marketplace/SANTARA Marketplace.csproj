@@ -101,10 +101,7 @@
       <LastGenOutput>SantaraModel.cs</LastGenOutput>
     </Content>
     <Content Include="Script\HomepageScript.js" />
-<<<<<<< Updated upstream
     <Content Include="Styles\CataloguePage_Styles.css" />
-=======
->>>>>>> Stashed changes
     <Content Include="Styles\ProductCard_Styles.css" />
     <Content Include="Styles\HeaderAndFooter_Styles.css" />
     <Content Include="Styles\HomePage_Styles.css" />
@@ -241,11 +238,8 @@
     <Content Include="Model\SantaraModel.edmx.diagram">
       <DependentUpon>SantaraModel.edmx</DependentUpon>
     </Content>
-<<<<<<< Updated upstream
     <Content Include="Fonts\Inter.ttf" />
     <Content Include="Fonts\SourceSerif4.ttf" />
-=======
->>>>>>> Stashed changes
     <None Include="packages.config" />
     <Content Include="Template\HeaderAndFooter.Master" />
     <None Include="Web.Debug.config">
