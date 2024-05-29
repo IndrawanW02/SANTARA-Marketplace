@@ -1,0 +1,36 @@
+﻿html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4A15C2;
+}
+
+section {
+    width: 70vw;
+    height: 80vh;
+    border: 1px solid red;
+    display: flex;
+}
+
+.illustration-tagline {
+    width: 50%;
+    height: 100%;
+    background-color: #ECE6FA;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.illustration-tagline h1 {
+    text-align: center;
+}
+
+.illustration {
+    width: 70%;
+    height: 70%;
+}
