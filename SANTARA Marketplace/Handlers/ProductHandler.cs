@@ -12,92 +12,52 @@ namespace SANTARA_Marketplace.Handlers
 {
     public class ProductHandler
     {
-        public static List<object> GetMostPopularProductInfo()
+        public static List<Product> GetMostPopularProductInfo()
         {
             ProductRepository productRepository = new ProductRepository();
-            ImageRepository imageRepository = new ImageRepository();
-            StoreRepository storeRepository = new StoreRepository();
-            AddressRepository addressRepository = new AddressRepository();
-
-            List<Product> ProductList = productRepository.GetPopularShoes();
-
-            List<object> productInfo = new List<object>();
-            var product = ProductList.Select(p => new
-            {
-                Product = p,
-                ProductImage = imageRepository.GetCertainProductImage(p.ProductID),
-                StoreInfo = storeRepository.GetStore(p.StoreID),
-            });
-
-            productInfo.AddRange(product);
-
-            return productInfo;
+            return productRepository.GetPopularShoes();
         }
 
-        public static List<object> GetWomanShoes()
+        public static List<Product> GetWomanShoes()
         {
             ProductRepository productRepository = new ProductRepository();
-            ImageRepository imageRepository = new ImageRepository();
-            StoreRepository storeRepository = new StoreRepository();
-            AddressRepository addressRepository = new AddressRepository();
-
-            List<Product> WomanProductList = productRepository.GetWomanShoes();
-
-            List<object> WomanProductInfo = new List<object>();
-            var product = WomanProductList.Select(p => new
-            {
-                Product = p,
-                ProductImage = imageRepository.GetCertainProductImage(p.ProductID),
-                StoreInfo = storeRepository.GetStore(p.StoreID),
-            });
-
-            WomanProductInfo.AddRange(product);
-
-            return WomanProductInfo;
+            return productRepository.GetWomanShoes();
         }
 
-        public static List<object> GetManShoes()
+        public static int WomanShoesCount()
         {
             ProductRepository productRepository = new ProductRepository();
-            ImageRepository imageRepository = new ImageRepository();
-            StoreRepository storeRepository = new StoreRepository();
-            AddressRepository addressRepository = new AddressRepository();
-
-            List<Product> ManProductList = productRepository.GetManShoes();
-
-            List<object> ManProductInfo = new List<object>();
-            var product = ManProductList.Select(p => new
-            {
-                Product = p,
-                ProductImage = imageRepository.GetCertainProductImage(p.ProductID),
-                StoreInfo = storeRepository.GetStore(p.StoreID),
-            });
-
-            ManProductInfo.AddRange(product);
-
-            return ManProductInfo;
+            return productRepository.GetWomanShoes().Count;
         }
 
-        public static List<object> GetKidShoes()
+        public static List<Product> GetManShoes()
         {
             ProductRepository productRepository = new ProductRepository();
-            ImageRepository imageRepository = new ImageRepository();
-            StoreRepository storeRepository = new StoreRepository();
-            AddressRepository addressRepository = new AddressRepository();
+            return productRepository.GetManShoes();
+        }
 
-            List<Product> KidProductList = productRepository.GetKidShoes();
+        public static int ManShoesCount()
+        {
+            ProductRepository productRepository = new ProductRepository();
+            return productRepository.ManShoesCount();
+        }
 
-            List<object> KidProductInfo = new List<object>();
-            var product = KidProductList.Select(p => new
-            {
-                Product = p,
-                ProductImage = imageRepository.GetCertainProductImage(p.ProductID),
-                StoreInfo = storeRepository.GetStore(p.StoreID),
-            });
+        public static List<Product> GetKidShoes()
+        {
+            ProductRepository productRepository = new ProductRepository();
+            return productRepository.GetKidShoes();
+        }
 
-            KidProductInfo.AddRange(product);
+        public static int KidShoesCount()
+        {
+            ProductRepository productRepository = new ProductRepository();
+            return productRepository.KidShoesCount();
+        }
 
-            return KidProductInfo;
+        public static Product GetProductByID(String ProductID)
+        {
+            ProductRepository productRepository = new ProductRepository();
+            return productRepository.GetProductByID(ProductID);
         }
     }
 }
