@@ -79,17 +79,21 @@
     <Content Include="App_Data\SantaraDatabase_log.ldf">
       <DependentUpon>SantaraDatabase.mdf</DependentUpon>
     </Content>
-    <Content Include="Assets\fe--arrow-down.svg" />
-    <Content Include="Assets\fe--arrow-up.svg" />
-    <Content Include="Assets\file.png" />
-    <Content Include="Assets\healthicons--magnifying-glass.svg" />
-    <Content Include="Assets\KidIcon.png" />
-    <Content Include="Assets\KidProductHeader.jpg" />
-    <Content Include="Assets\ManIcon.png" />
-    <Content Include="Assets\MenProductHeader.jpg" />
-    <Content Include="Assets\Screenshot %284%29.png" />
-    <Content Include="Assets\WomanIcon.png" />
-    <Content Include="Assets\WomanProductHeader.png" />
+    <Content Include="Assets\Images\DefaultProfileImage.png" />
+    <Content Include="Assets\Icons\arrow-down.svg" />
+    <Content Include="Assets\Icons\arrow-up.svg" />
+    <Content Include="Assets\Icons\magnifying-glassicon.svg" />
+    <Content Include="Assets\Images\Illustration.svg" />
+    <Content Include="Assets\Images\santara-logo.svg" />
+    <Content Include="Assets\Icons\KidIcon.png" />
+    <Content Include="Assets\Images\KidProductHeader.jpg" />
+    <Content Include="Assets\Icons\ManIcon.png" />
+    <Content Include="Assets\Images\MenProductHeader.jpg" />
+    <Content Include="Assets\Icons\minus-icon.svg" />
+    <Content Include="Assets\Icons\plus-icon.svg" />
+    <Content Include="Assets\Images\RegisterIllustration.svg" />
+    <Content Include="Assets\Icons\WomanIcon.png" />
+    <Content Include="Assets\Images\WomanProductHeader.png" />
     <Content Include="Model\SantaraModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SantaraModel.edmx</DependentUpon>
@@ -100,25 +104,52 @@
       <DependentUpon>SantaraModel.edmx</DependentUpon>
       <LastGenOutput>SantaraModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Script\HomepageScript.js" />
+    <Content Include="Script\JavaScript.js" />
+    <Content Include="Script\Shipment.js" />
     <Content Include="Styles\CataloguePage_Styles.css" />
     <Content Include="Styles\ProductCard_Styles.css" />
     <Content Include="Styles\HeaderAndFooter_Styles.css" />
     <Content Include="Styles\HomePage_Styles.css" />
+    <Content Include="Styles\ProductPage_Style.css" />
+    <Content Include="Styles\[Auth]Page_Styles.css" />
     <Content Include="Styles\[Category]ProductPage_Styles.css" />
+    <Content Include="Styles\[PaymentProcess]Page_Styles.css" />
     <Content Include="Views\CataloguePage.aspx" />
+    <Content Include="Views\CheckOutPage.aspx" />
     <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\KidProductPage.aspx" />
+    <Content Include="Views\LoginPage.aspx" />
     <Content Include="Views\ManProductPage.aspx" />
+    <Content Include="Views\RegisterPage.aspx" />
+    <Content Include="Views\ShoppingCartPage.aspx" />
     <Content Include="Views\WomanProductPage.aspx" />
     <Content Include="Views\ProductPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AdvertisementController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\RatingController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\StorageController.cs" />
+    <Compile Include="Controllers\UserAuthController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserRegistrationController.cs" />
     <Compile Include="Factory\AdvertisementFactory.cs" />
+    <Compile Include="Factory\ShoppingCartFactory.cs" />
     <Compile Include="Factory\ImageFactory.cs" />
+    <Compile Include="Factory\TransactionFactory.cs" />
+    <Compile Include="Factory\UserFactory.cs" />
+    <Compile Include="Handlers\AdvertisementHandler.cs" />
+    <Compile Include="Handlers\ImageHandler.cs" />
     <Compile Include="Handlers\ProductHandler.cs" />
+    <Compile Include="Handlers\RatingHandler.cs" />
+    <Compile Include="Handlers\ShoppingCartHandler.cs" />
+    <Compile Include="Handlers\StorageHandler.cs" />
+    <Compile Include="Handlers\UserAuthHandler.cs" />
+    <Compile Include="Handlers\UserHandler.cs" />
+    <Compile Include="Handlers\UserRegistrationHandler.cs" />
     <Compile Include="Model\Address.cs">
       <DependentUpon>SantaraModel.tt</DependentUpon>
     </Compile>
@@ -176,7 +207,12 @@
     <Compile Include="Repositories\DatabaseSingleton.cs" />
     <Compile Include="Repositories\ImageRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\RatingRepository.cs" />
+    <Compile Include="Repositories\ShoppingCartRepository.cs" />
+    <Compile Include="Repositories\StorageRepository.cs" />
     <Compile Include="Repositories\StoreRepository.cs" />
+    <Compile Include="Repositories\TransactionRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Template\HeaderAndFooter.Master.cs">
       <DependentUpon>HeaderAndFooter.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -190,6 +226,13 @@
     </Compile>
     <Compile Include="Views\CataloguePage.aspx.designer.cs">
       <DependentUpon>CataloguePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CheckOutPage.aspx.cs">
+      <DependentUpon>CheckOutPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\CheckOutPage.aspx.designer.cs">
+      <DependentUpon>CheckOutPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
@@ -205,12 +248,33 @@
     <Compile Include="Views\KidProductPage.aspx.designer.cs">
       <DependentUpon>KidProductPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\ManProductPage.aspx.cs">
       <DependentUpon>ManProductPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\ManProductPage.aspx.designer.cs">
       <DependentUpon>ManProductPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegisterPage.aspx.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\RegisterPage.aspx.designer.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShoppingCartPage.aspx.cs">
+      <DependentUpon>ShoppingCartPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ShoppingCartPage.aspx.designer.cs">
+      <DependentUpon>ShoppingCartPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\WomanProductPage.aspx.cs">
       <DependentUpon>WomanProductPage.aspx</DependentUpon>
@@ -228,9 +292,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Fonts\Rosmatika.ttf" />
-    <Content Include="Fonts\Oswald.ttf" />
-    <Content Include="Fonts\OpenSans.ttf" />
+    <Content Include="Assets\Fonts\Rosmatika.ttf" />
+    <Content Include="Assets\Fonts\Oswald.ttf" />
+    <Content Include="Assets\Fonts\OpenSans.ttf" />
+    <Content Include="Assets\Fonts\Inter.ttf" />
+    <Content Include="Assets\Fonts\SourceSerif4.ttf" />
     <EntityDeploy Include="Model\SantaraModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SantaraModel.Designer.cs</LastGenOutput>
@@ -238,8 +304,6 @@
     <Content Include="Model\SantaraModel.edmx.diagram">
       <DependentUpon>SantaraModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Fonts\Inter.ttf" />
-    <Content Include="Fonts\SourceSerif4.ttf" />
     <None Include="packages.config" />
     <Content Include="Template\HeaderAndFooter.Master" />
     <None Include="Web.Debug.config">
