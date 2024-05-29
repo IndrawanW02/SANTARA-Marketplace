@@ -23,8 +23,8 @@ a {
 }
 
 .ProductCard {
-    width: 320px;
-    height: 500px;
+    width: 270px;
+    height: 450px;
     display: flex;
     flex-direction: column;
     border: 1px solid rgba(189, 189, 189, 0.2);
