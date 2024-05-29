@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SANTARA_Marketplace.Controllers;
+using SANTARA_Marketplace.Model;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -12,7 +14,32 @@ namespace SANTARA_Marketplace.Template
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
+            {
+                SignInBtn.Visible = true;
+                SignUpBtn.Visible = true;
+                UserProfilePic.Visible = false;
+                Username.Visible = false;
+            }
+            else
+            {
+                User user;
+                if (Session["user"] == null)
+                {
+                    var id = Request.Cookies["user_cookie"].Values;
+                    user = UserController.GetUserByID(id.ToString());
+                    Session["user"] = user;
+                }
+                else
+                {
+                    user = (User)Session["user"];
+                }
 
+                UserProfilePic.ImageUrl = GetImageBase64String(user.UserProfilePic);
+                Username.Text = user.Username;
+                UserProfilePic.Visible = true;
+                Username.Visible = true;
+            }
         }
 
         public static string GetImageBase64String(object imageData)
@@ -42,6 +69,16 @@ namespace SANTARA_Marketplace.Template
             nfi.CurrencyDecimalDigits = 0;
 
             return price.ToString("C", nfi);
+        }
+
+        protected void SignInBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/LoginPage.aspx");
+        }
+
+        protected void SignUpBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/RegisterPage.aspx");
         }
     }
 }
