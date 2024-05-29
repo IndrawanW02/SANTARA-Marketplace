@@ -22,7 +22,7 @@
                         <div class="ProductCard">
                             <div class="ProductImageContainer">
                                 <a href="ProductPage.aspx?ProductID=<%# Eval("Storage.Product.ProductID") %>">
-                                    <%--<img alt="" src="<%# SANTARA_Marketplace.Template.HeaderAndFooter.GetImageBase64String(Eval("ProductImage")) %>" />--%>
+                                    <img alt="" src="<%# SANTARA_Marketplace.Template.HeaderAndFooter.GetImageBase64String(Eval("Storage.Product.ProductThumbnail")) %>" />
                                 </a>
                             </div>
 
@@ -67,8 +67,8 @@
                                             </button>
                                         </div>
                                         <asp:Label ID="ShipmentErrLbl" runat="server" Text="" Visible="false"></asp:Label>
-                                        <asp:HiddenField ID="hfShipmentMethod" runat="server" Value=""/>
-                                        <asp:HiddenField ID="hfShipmentPrice" runat="server" />
+                                        <asp:HiddenField ID="hfShipmentMethod" runat="server" Value="" EnableViewState="true"/>
+                                        <asp:HiddenField ID="hfShipmentPrice" runat="server" EnableViewState="true"/>
                                     </div>
                                 </div>
                             </div>
@@ -98,33 +98,103 @@
                 <asp:Label ID="TotalShipmentPriceLbl" runat="server" Text="a"></asp:Label>
                 <asp:Label ID="TotalPriceLbl" runat="server" Text=""></asp:Label>
             </div>
-            <asp:Button ID="ChoosePaymentBtn" runat="server" Text="PILIH PEMBAYARAN" CssClass="open-modal-button"/>
+            <asp:Button ID="ChoosePaymentBtn" runat="server" Text="PILIH PEMBAYARAN" CssClass="open-modal-button" OnClick="ChoosePaymentBtn_Click" UseSubmitBehavior="false"/>
         </div>
 
         <div class="modal" id="modal">
-            <button data-close-modal class="close-button">&times;</button>
             <div class="modal-header">
-                <div class="title">Metode Pembayaran</div>
+                <button data-close-modal class="close-button">&times;</button>
+                <div class="modal-title">Metode Pembayaran</div>
             </div>
             <div class="payment-option">
-                <button type="button">
+                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="test" OnClick="LinkButton_Click">
+                    <div class="test2">
+                        <div class="payment-logo">
+                            <img alt="" style="width: 20px; height: 20px" src="../Assets/fe--arrow-down.svg" />
+                            <p>Credit Card.</p>
+                        </div>
+                        <asp:Label ID="as" runat="server" Text="not available"></asp:Label>
+                    </div>
+                </asp:LinkButton>
+                <asp:LinkButton ID="SantaraPay" runat="server" CssClass="" OnClick="LinkButton_Click">
+                    <div class="test1">
+                        <div class="payment-logo">
+                            <img alt="" style="width: 20px; height: 20px" src="../Assets/fe--arrow-down.svg" />
+                            <p>Saldo SANTARA.</p>
+                        </div>
+                        <asp:Label ID="SaldoUser" runat="server" Text="Label"></asp:Label>
+                    </div>
+                </asp:LinkButton>
+                <asp:Label ID="PaymentErr" runat="server" Text=""></asp:Label>
+                <%--<button type="button">
                     <p>Saldo Santara.</p>
                     <asp:Label ID="SaldoUser" runat="server" Text=""></asp:Label>
-                </button>
+                </button>--%>
             </div>
         </div>
 
         <div id="overlay"></div>
-        <asp:HiddenField ID="hfTriggerPostback" runat="server"/>
+        <asp:HiddenField ID="hfTriggerPostback" runat="server" />
 
     </section>
     <script>
-        document.getElementById('<%= ChoosePaymentBtn.ClientID %>').addEventListener("click", function (event) {
+        <%--document.getElementById('<%= ChoosePaymentBtn.ClientID %>').addEventListener("click", function (event) {
             event.preventDefault();
-        });
+        });--%>
+
+        <%--document.getElementById('<%= LinkButton2.ClientID %>').addEventListener("click", function (event) {
+            event.preventDefault();
+        });--%>
 
         // Pop-Up
-        document.addEventListener("DOMContentLoaded", function () {
+        //document.addEventListener("DOMContentLoaded", function () {
+        //    console.log("JavaScript terhubung dan DOM telah dimuat.");
+
+        //    const openModalButtons = document.querySelectorAll('.open-modal-button');
+        //    console.log("openModalButtons:", openModalButtons);
+
+        //    const closeModalButtons = document.querySelectorAll('[data-close-modal]');
+        //    console.log("closeModalButtons:", closeModalButtons);
+
+        //    const overlay = document.getElementById('overlay');
+
+        //    closeModalButtons.forEach(button => {
+        //        button.addEventListener('click', () => {
+        //            const modal = button.closest('.modal');
+        //            console.log("closeModalButtons:", modal);
+
+        //            closeModal(modal);
+        //        });
+        //    });
+
+        //    openModalButtons.forEach(button => {
+        //        button.addEventListener('click', () => {
+        //            const modal = document.querySelector(button.getAttribute('data-modal-target'));
+        //            console.log("openModalButtons:", modal);
+
+        //            openModal(modal);
+        //        });
+        //    });
+
+
+        //    function openModal(modal) {
+        //        if (modal == null) return;
+        //        console.log('Opening modal:', modal); // Debug line
+
+
+        //        modal.classList.add('active');
+        //        overlay.classList.add('active');
+        //        console.log('Modal classes:', modal.classList); // Debug line
+        //    }
+
+        //    function closeModal(modal) {
+        //        if (modal == null) return;
+        //        modal.classList.remove('active');
+        //        overlay.classList.remove('active');
+        //    }
+        //});
+
+        function enablePopUp() {
             console.log("JavaScript terhubung dan DOM telah dimuat.");
 
             const openModalButtons = document.querySelectorAll('.open-modal-button');
@@ -169,7 +239,27 @@
                 modal.classList.remove('active');
                 overlay.classList.remove('active');
             }
-        });
+        }
+
+        function openModalFromCodeBehind() {
+            const openModalButtons = document.querySelectorAll('.open-modal-button');
+            const modalButton = openModalButtons[0];
+            const modal = document.querySelector(modalButton.getAttribute('data-modal-target'));
+
+            console.log('Opening modal:', modal); // Debug line
+
+            modal.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeModalFromCodeBehind() {
+            modal.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        function disablePayment() {
+            return false;
+        }
 
         function setShipment(button) {
             var method = button.dataset.method;
