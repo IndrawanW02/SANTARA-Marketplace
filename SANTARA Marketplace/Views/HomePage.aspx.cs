@@ -19,18 +19,31 @@ namespace SANTARA_Marketplace.Views
     public partial class Home_Page : System.Web.UI.Page
     {
         SantaraDatabaseEntities1 db = DatabaseSingleton.GetInstance();
-        public List<Product> products = new List<Product>();
+        public int manProductCount;
+        public int womanProductCount;
+        public int kidProductCount;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 BindCardData();
+                BindAdvertisementData();
+                manProductCount = ProductController.ManShoesCount();
+                womanProductCount = ProductController.WomanShoesCount();
+                kidProductCount = ProductController.KidShoesCount();
             }
         }
 
+        private void BindAdvertisementData()
+        {
+            List<Advertisement> advertisementData = AdvertisementController.SetAdvertisement();
+            AdvertisementRepeater.DataSource = advertisementData;
+            AdvertisementRepeater.DataBind();
+        }
         private void BindCardData()
         {
-            List<object> productInfo = ProductController.GetMostPopularShoes().Take(5).ToList();
+            List<Product> productInfo = ProductController.GetMostPopularShoes().Take(5).ToList();
             CardRepeater.DataSource = productInfo;
             CardRepeater.DataBind();
         }
@@ -59,9 +72,28 @@ namespace SANTARA_Marketplace.Views
                 }
 
                 string ProductID = TextBox1.Text;
-                ProductImage image = ImageFactory.Create(imageID, ProductID, imageBytes);
-                ImageRepository imgRepo = new ImageRepository();
-                imgRepo.AddImage(image);
+
+
+                AdvertisementRepository advertisementRepository = new AdvertisementRepository();
+                String newID = "";
+                String lastID = advertisementRepository.GetLastAdvertisementID();
+                if (lastID == null)
+                {
+                    newID = "AD001";
+                }
+                else
+                {
+                    int IDnumber = Convert.ToInt32(lastID.Substring(2));
+                    IDnumber++;
+                    newID = String.Format(("AD{0:000}"), IDnumber);
+                }
+
+                DateTime StartDate = DateTime.Now;
+                DateTime EndDate = StartDate.AddDays(7);
+                advertisementRepository.AddAdvertisement(newID, ProductID, imageBytes, StartDate, EndDate);
+                //ProductImage image = ImageFactory.Create(imageID, ProductID, imageBytes);
+                //ImageRepository imgRepo = new ImageRepository();
+                //imgRepo.AddImage(image);
             }
             else
             {
