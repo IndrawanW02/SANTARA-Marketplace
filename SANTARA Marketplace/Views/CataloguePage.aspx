@@ -33,25 +33,25 @@
             <div class="category-item">
                 <asp:Repeater ID="CardRepeaterMan" runat="server">
                     <ItemTemplate>
-                        <a href="ProductPage.aspx?ProductID=<%# Eval("Product.ProductID") %>" class="ProductNavigator">
+                        <a href="ProductPage.aspx?ProductID=<%# Eval("ProductID") %>" class="ProductNavigator">
                             <div class="ProductCard">
                                 <div class="ProductImageContainer">
-                                    <img alt="" src="<%# SANTARA_Marketplace.Template.HeaderAndFooter.GetImageBase64String(Eval("ProductImage")) %>" />
+                                    <img alt="" src="<%# SANTARA_Marketplace.Template.HeaderAndFooter.GetImageBase64String(Eval("ProductThumbnail")) %>" />
                                 </div>
 
                                 <div class="ProductDescriptionContainer">
                                     <div>
-                                        <p class="ProductName"><%# Eval("Product.ProductName") %></p>
+                                        <p class="ProductName"><%# Eval("ProductName") %></p>
                                         <div class="ProductRating">
                                             <span class="basil--star-solid"></span>
-                                            <p><%# Eval("Product.ProductRatingValue") %></p>
-                                            <p>(<%# Eval("Product.ProductRatingCount") %>)</p>
+                                            <p><%# Eval("ProductRatingValue") %></p>
+                                            <p>(<%# Eval("ProductRatingCount") %>)</p>
                                         </div>
-                                        <p class="ProductPrice"><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice(Eval("Product.ProductPrice")) %></p>
+                                        <p class="ProductPrice"><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice(Eval("ProductPrice")) %></p>
                                     </div>
 
                                     <div>
-                                        <p class="ProductionPlace"><%# Eval("StoreInfo.Address.Province") %></p>
+                                        <p class="ProductionPlace"><%# Eval("Store.Address.Province") %></p>
                                     </div>
                                 </div>
                             </div>
@@ -71,25 +71,25 @@
             <div class="category-item">
                 <asp:Repeater ID="CardRepeaterWoman" runat="server">
                     <ItemTemplate>
-                        <a href="ProductPage.aspx?ProductID=<%# Eval("Product.ProductID") %>" class="ProductNavigator">
+                        <a href="ProductPage.aspx?ProductID=<%# Eval("ProductID") %>" class="ProductNavigator">
                             <div class="ProductCard">
                                 <div class="ProductImageContainer">
-                                    <img alt="" src="<%# SANTARA_Marketplace.Template.HeaderAndFooter.GetImageBase64String(Eval("ProductImage")) %>" />
+                                    <img alt="" src="<%# SANTARA_Marketplace.Template.HeaderAndFooter.GetImageBase64String(Eval("ProductThumbnail")) %>" />
                                 </div>
 
                                 <div class="ProductDescriptionContainer">
                                     <div>
-                                        <p class="ProductName"><%# Eval("Product.ProductName") %></p>
+                                        <p class="ProductName"><%# Eval("ProductName") %></p>
                                         <div class="ProductRating">
                                             <span class="basil--star-solid"></span>
-                                            <p><%# Eval("Product.ProductRatingValue") %></p>
-                                            <p>(<%# Eval("Product.ProductRatingCount") %>)</p>
+                                            <p><%# Eval("ProductRatingValue") %></p>
+                                            <p>(<%# Eval("ProductRatingCount") %>)</p>
                                         </div>
-                                        <p class="ProductPrice"><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice(Eval("Product.ProductPrice")) %></p>
+                                        <p class="ProductPrice"><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice(Eval("ProductPrice")) %></p>
                                     </div>
 
                                     <div>
-                                        <p class="ProductionPlace"><%# Eval("StoreInfo.Address.Province") %></p>
+                                        <p class="ProductionPlace"><%# Eval("Store.Address.Province") %></p>
                                     </div>
                                 </div>
                             </div>
@@ -109,25 +109,25 @@
             <div class="category-item">
                 <asp:Repeater ID="CardRepeaterKid" runat="server">
                     <ItemTemplate>
-                        <a href="ProductPage.aspx?ProductID=<%# Eval("Product.ProductID") %>" class="ProductNavigator">
+                        <a href="ProductPage.aspx?ProductID=<%# Eval("ProductID") %>" class="ProductNavigator">
                             <div class="ProductCard">
                                 <div class="ProductImageContainer">
-                                    <img alt="" src="<%# SANTARA_Marketplace.Template.HeaderAndFooter.GetImageBase64String(Eval("ProductImage")) %>" />
+                                    <img alt="" src="<%# SANTARA_Marketplace.Template.HeaderAndFooter.GetImageBase64String(Eval("ProductThumbnail")) %>" />
                                 </div>
 
                                 <div class="ProductDescriptionContainer">
                                     <div>
-                                        <p class="ProductName"><%# Eval("Product.ProductName") %></p>
+                                        <p class="ProductName"><%# Eval("ProductName") %></p>
                                         <div class="ProductRating">
                                             <span class="basil--star-solid"></span>
-                                            <p><%# Eval("Product.ProductRatingValue") %></p>
-                                            <p>(<%# Eval("Product.ProductRatingCount") %>)</p>
+                                            <p><%# Eval("ProductRatingValue") %></p>
+                                            <p>(<%# Eval("ProductRatingCount") %>)</p>
                                         </div>
-                                        <p class="ProductPrice"><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice(Eval("Product.ProductPrice")) %></p>
+                                        <p class="ProductPrice"><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice(Eval("ProductPrice")) %></p>
                                     </div>
 
                                     <div>
-                                        <p class="ProductionPlace"><%# Eval("StoreInfo.Address.Province") %></p>
+                                        <p class="ProductionPlace"><%# Eval("Store.Address.Province") %></p>
                                     </div>
                                 </div>
                             </div>

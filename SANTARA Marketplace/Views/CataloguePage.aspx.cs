@@ -1,4 +1,5 @@
 ﻿using SANTARA_Marketplace.Controllers;
+using SANTARA_Marketplace.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,21 +23,21 @@ namespace SANTARA_Marketplace.Views
 
         private void BindCardDataForMan()
         {
-            List<object> productInfo = ProductController.GetManShoes().Take(10).ToList();
+            List<Product> productInfo = ProductController.GetManShoes().Take(10).ToList();
             CardRepeaterMan.DataSource = productInfo;
             CardRepeaterMan.DataBind();
         }
 
         private void BindCardDataForWoman()
         {
-            List<object> productInfo = ProductController.GetWomanShoes().Take(10).ToList();
+            List<Product> productInfo = ProductController.GetWomanShoes().Take(10).ToList();
             CardRepeaterWoman.DataSource = productInfo;
             CardRepeaterWoman.DataBind();
         }
 
         private void BindCardDataForKid()
         {
-            List<object> productInfo = ProductController.GetKidShoes().Take(10).ToList();
+            List<Product> productInfo = ProductController.GetKidShoes().Take(10).ToList();
             CardRepeaterKid.DataSource = productInfo;
             CardRepeaterKid.DataBind();
         }

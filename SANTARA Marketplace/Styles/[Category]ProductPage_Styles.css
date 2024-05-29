@@ -56,7 +56,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 0;
-    background: linear-gradient( to right, rgb(0 0 0 / 0.7), rgb(0 0 0 / 0)), url('../assets/womanproductheader.png');
+    background: linear-gradient( to right, rgb(0 0 0 / 0.7), rgb(0 0 0 / 0)), url('../assets/images/womanproductheader.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: bottom;
@@ -69,7 +69,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 0;
-    background: linear-gradient( to right, rgb(0 0 0 / 0.7), rgb(0 0 0 / 0)), url('../assets/menproductheader.jpg');
+    background: linear-gradient( to right, rgb(0 0 0 / 0.7), rgb(0 0 0 / 0)), url('../assets/images/menproductheader.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: top;
@@ -82,7 +82,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 0;
-    background: linear-gradient( to right, rgb(0 0 0 / 0.7), rgb(0 0 0 / 0)), url('../assets/kidproductheader.jpg');
+    background: linear-gradient( to right, rgb(0 0 0 / 0.7), rgb(0 0 0 / 0)), url('../assets/images/kidproductheader.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: top;
@@ -96,7 +96,7 @@
     justify-content: space-between;
 }
 
-h3 {
+.header-container h3 {
     font-family: 'oswald';
     font-size: 5rem;
     color: #FFFFFF;
@@ -157,7 +157,7 @@ h3 {
 .search-button {
     width: 50px;
     height: 100%;
-    background: url('../assets/healthicons--magnifying-glass.svg') no-repeat center;
+    background: url('../assets/icons/magnifying-glassicon.svg') no-repeat center;
     background-size: 24px 24px;
     background-color: #5F22E9;
     border: 0.5px solid #000000;
@@ -207,7 +207,7 @@ h3 {
     padding: 0 12px;
     -webkit-appearance: none; /* Menghapus tampilan default arrow pada beberapa browser */
     -moz-appearance: none; /* Menghapus tampilan default arrow pada Firefox */
-    background: url('../Assets/fe--arrow-down.svg') no-repeat;
+    background: url('../assets/icons/arrow-down.svg') no-repeat;
     background-position: calc(100% - 12px) center;
     background-color: #FFFFFF;
     background-size: 24px 24px;
@@ -218,7 +218,7 @@ h3 {
 }
 
 .DD:focus {
-    background: url('../Assets/fe--arrow-up.svg') no-repeat;
+    background: url('../assets/icons/arrow-up.svg') no-repeat;
     background-position: calc(100% - 12px) center;
     background-color: #FFFFFF;
     background-size: 24px 24px;

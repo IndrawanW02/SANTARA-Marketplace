@@ -1,4 +1,5 @@
 ﻿using SANTARA_Marketplace.Controllers;
+using SANTARA_Marketplace.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace SANTARA_Marketplace.Views
 
         private void BindCardData()
         {
-            List<object> productInfo = ProductController.GetKidShoes();
+            List<Product> productInfo = ProductController.GetKidShoes();
             CardRepeater.DataSource = productInfo;
             CardRepeater.DataBind();
         }
