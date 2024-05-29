@@ -6,13 +6,9 @@ using System.Web;
 
 namespace SANTARA_Marketplace.Repositories
 {
-    public class AddressRepository
+    public class TransactionRepository
     {
         private static SantaraDatabaseEntities1 db = DatabaseSingleton.GetInstance();
 
-        public Address GetAddress(String AddressID)
-        {
-            return (from a in db.Addresses where a.AddressID.Equals(AddressID) select a).FirstOrDefault();
-        }
     }
 }

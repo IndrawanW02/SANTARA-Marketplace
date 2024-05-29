@@ -35,6 +35,14 @@ namespace SANTARA_Marketplace.Repositories
                     select p).ToList();
         }
 
+        public int WomanShoesCount()
+        {
+            return (from p
+                    in db.Products
+                    where p.ProductCategory.Equals("Wanita")
+                    select p).Count();
+        }
+
         public List<Product> GetManShoes()
         {
             return (from p
@@ -43,12 +51,28 @@ namespace SANTARA_Marketplace.Repositories
                     select p).ToList();
         }
 
+        public int ManShoesCount()
+        {
+            return (from p
+                    in db.Products
+                    where p.ProductCategory.Equals("Pria")
+                    select p).ToList().Count();
+        }
+
         public List<Product> GetKidShoes()
         {
             return (from p
                     in db.Products
                     where p.ProductCategory.Equals("Anak")
                     select p).ToList();
+        }
+
+        public int KidShoesCount()
+        {
+            return (from p
+                    in db.Products
+                    where p.ProductCategory.Equals("Anak")
+                    select p).ToList().Count();
         }
 
     }
