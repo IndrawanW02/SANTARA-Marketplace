@@ -16,11 +16,14 @@ namespace SANTARA_Marketplace.Model
     {
         public string RatingID { get; set; }
         public string ProductID { get; set; }
+        public string StorageID { get; set; }
         public string UserID { get; set; }
         public double RatingValue { get; set; }
         public string RatingDescription { get; set; }
+        public System.DateTime CreatedAt { get; set; }
     
         public virtual Product Product { get; set; }
+        public virtual Storage Storage { get; set; }
         public virtual User User { get; set; }
     }
 }

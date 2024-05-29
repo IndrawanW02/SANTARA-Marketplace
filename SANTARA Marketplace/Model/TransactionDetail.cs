@@ -16,12 +16,14 @@ namespace SANTARA_Marketplace.Model
     {
         public string TransactionID { get; set; }
         public string StorageID { get; set; }
+        public string StoreID { get; set; }
         public int Quantity { get; set; }
         public string ShipmentMethod { get; set; }
         public string ShipmentPrice { get; set; }
         public string Status { get; set; }
     
         public virtual Storage Storage { get; set; }
+        public virtual Store Store { get; set; }
         public virtual Transaction Transaction { get; set; }
     }
 }

@@ -33,6 +33,7 @@ namespace SANTARA_Marketplace.Model
         public int ProductSold { get; set; }
         public decimal ProductRatingValue { get; set; }
         public int ProductRatingCount { get; set; }
+        public byte[] ProductThumbnail { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Advertisement> Advertisements { get; set; }

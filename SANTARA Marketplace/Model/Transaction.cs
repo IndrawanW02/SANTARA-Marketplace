@@ -23,10 +23,8 @@ namespace SANTARA_Marketplace.Model
         public string TransactionID { get; set; }
         public string UserID { get; set; }
         public System.DateTime CreatedAt { get; set; }
-        public string StorageID { get; set; }
         public string PaymentMethod { get; set; }
     
-        public virtual Storage Storage { get; set; }
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TransactionDetail> TransactionDetails { get; set; }

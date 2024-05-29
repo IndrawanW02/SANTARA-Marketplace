@@ -18,6 +18,7 @@ namespace SANTARA_Marketplace.Model
         public Store()
         {
             this.Products = new HashSet<Product>();
+            this.TransactionDetails = new HashSet<TransactionDetail>();
             this.Users = new HashSet<User>();
         }
     
@@ -33,6 +34,8 @@ namespace SANTARA_Marketplace.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
         public virtual StoreStatistic StoreStatistic { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TransactionDetail> TransactionDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }
     }
