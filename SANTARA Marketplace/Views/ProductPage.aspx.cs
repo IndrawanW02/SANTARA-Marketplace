@@ -40,6 +40,7 @@ namespace SANTARA_Marketplace.Views
                 stock.Text = BindProductStock(productID, ChooseColor.SelectedValue, Double.Parse(ChooseSize.SelectedValue));
                 BindProductReview(productID);
 
+                productPageNav.HRef = "~/Views/" + product.ProductCategory + "ProductPage.aspx";
                 Page.DataBind();
             }
         }

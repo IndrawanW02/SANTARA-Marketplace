@@ -123,10 +123,10 @@
     </div>
 
 
-    <asp:Label ID="Label1" runat="server" Text="BrowseImage"></asp:Label>
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-    <asp:FileUpload ID="FileUpload1" runat="server" />
-    <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+    <asp:Label ID="Label1" runat="server" Text="BrowseImage" Visible="false"></asp:Label>
+    <asp:TextBox ID="TextBox1" runat="server"  Visible="false"></asp:TextBox>
+    <asp:FileUpload ID="FileUpload1" runat="server"  Visible="false" />
+    <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" Visible="false" />
 
 
 
