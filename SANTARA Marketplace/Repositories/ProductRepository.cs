@@ -31,7 +31,7 @@ namespace SANTARA_Marketplace.Repositories
         {
             return (from p 
                     in db.Products 
-                    where p.ProductCategory.Equals("Woman") 
+                    where p.ProductCategory.Equals("Wanita") 
                     select p).ToList();
         }
 
@@ -39,7 +39,7 @@ namespace SANTARA_Marketplace.Repositories
         {
             return (from p
                     in db.Products
-                    where p.ProductCategory.Equals("Woman")
+                    where p.ProductCategory.Equals("Wanita")
                     select p).Count();
         }
 
@@ -47,7 +47,7 @@ namespace SANTARA_Marketplace.Repositories
         {
             return (from p
                     in db.Products
-                    where p.ProductCategory.Equals("Man")
+                    where p.ProductCategory.Equals("Pria")
                     select p).ToList();
         }
 
@@ -55,7 +55,7 @@ namespace SANTARA_Marketplace.Repositories
         {
             return (from p
                     in db.Products
-                    where p.ProductCategory.Equals("Man")
+                    where p.ProductCategory.Equals("Pria")
                     select p).ToList().Count();
         }
 
@@ -63,7 +63,7 @@ namespace SANTARA_Marketplace.Repositories
         {
             return (from p
                     in db.Products
-                    where p.ProductCategory.Equals("Kid")
+                    where p.ProductCategory.Equals("Anak")
                     select p).ToList();
         }
 
@@ -71,7 +71,7 @@ namespace SANTARA_Marketplace.Repositories
         {
             return (from p
                     in db.Products
-                    where p.ProductCategory.Equals("Kid")
+                    where p.ProductCategory.Equals("Anak")
                     select p).ToList().Count();
         }
 

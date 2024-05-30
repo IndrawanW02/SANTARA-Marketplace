@@ -9,18 +9,6 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <nav class="Page-Path">
-        <div>
-            <a href="HomePage.aspx" class="NavText">Beranda</a>
-            <p class="NavText">/</p>
-            <a href="CataloguePage.aspx" class="NavText">Katalog</a>
-            <p class="NavText">/</p>
-            <a id="productPageNav" runat="server" class="NavText">Sepatu <%# product.ProductCategory%></a>
-            <p class="NavText">/</p>
-            <p class="NavText"><%# product.ProductName %></p>
-        </div>
-    </nav>
-
     <section>
         <div class="product-card">
             <div class="swiper mySwiper" onload="InitializeSwiper">
@@ -41,37 +29,34 @@
             <div class="product-specification-container">
                 <div class="product-specification">
                     <div class="product-main-info">
-                        <p class="product-name"><%# product.ProductName %></p>
+                        <p><%# product.ProductName %></p>
                         <div class="product-rating">
                             <span class="basil--star-solid"></span>
                             <span class="basil--star-solid"></span>
                             <span class="basil--star-solid"></span>
                             <span class="basil--star-solid"></span>
                             <span class="basil--star-solid"></span>
-                            <p class="rating-value"><%# product.ProductRatingValue %></p>
-                            <p class="rating-value">(<%# product.ProductRatingCount %>)</p>
+                            <p><%# product.ProductRatingValue %></p>
                         </div>
-                        <p class="product-price"><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice(product.ProductPrice) %></p>
+                        <p><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice(product.ProductPrice) %></p>
                     </div>
 
                     <div class="separator"></div>
 
-                    <div class="option-container">
-                        <div class="color-container">
-                            <label for="chooseColor" class="choice-header">PILIH WARNA</label>
-                            <asp:DropDownList class="DD" CssClass="dropdown-box" ID="ChooseColor" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ChooseColor_SelectedIndexChanged">
-                                <asp:ListItem ID="colorItem" Text="Warna" Value=""></asp:ListItem>
-                            </asp:DropDownList>
-                            <asp:Label ID="ChooseColorErr" runat="server" Text="" ForeColor="#c21815"></asp:Label>
-                        </div>
+                    <div class="color-container">
+                        <label for="chooseColor">PILIH WARNA</label>
+                        <asp:DropDownList class="DD" ID="ChooseColor" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ChooseColor_SelectedIndexChanged">
+                            <asp:ListItem ID="colorItem" Text="Warna" Value=""></asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:Label ID="ChooseColorErr" runat="server" Text="" ForeColor="#c21815"></asp:Label>
+                    </div>
 
-                        <div class="size-container">
-                            <label for="chooseColor" class="choice-header">PILIH WARNA</label>
-                            <asp:DropDownList class="DD" ID="ChooseSize" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ChooseSize_SelectedIndexChanged">
-                                <asp:ListItem ID="sizeItem" Text="Ukuran" Value=""></asp:ListItem>
-                            </asp:DropDownList>
-                            <asp:Label ID="ChooseSizeErr" runat="server" Text="" ForeColor="#c21815"></asp:Label>
-                        </div>
+                    <div class="size-container">
+                        <label for="chooseColor">PILIH WARNA</label>
+                        <asp:DropDownList class="DD" ID="ChooseSize" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ChooseSize_SelectedIndexChanged">
+                            <asp:ListItem ID="sizeItem" Text="Ukuran" Value=""></asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:Label ID="ChooseSizeErr" runat="server" Text="" ForeColor="#c21815"></asp:Label>
                     </div>
 
                     <div>
