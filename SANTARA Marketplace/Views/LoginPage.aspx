@@ -9,35 +9,59 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <section>
-            <div class="illustration-tagline">
+            <div class="illustration-tagline" id="login">
                 <asp:Image CssClass="illustration" ID="Image1" runat="server" ImageUrl="~/Assets/Images/RegisterIllustration.svg" />
-                <h1>Sudah siap untuk menemukan sepatu yang sempurna? Bergabunglah dengan kami!</h1>
+                <h1>Ayo temukan sepatu yang sesuai dengan gayamu!</h1>
             </div>
-            <div class="form">
-                <div>
-                    <asp:Label ID="UsernameLbl" runat="server" Text="Username"></asp:Label>
-                    <asp:TextBox ID="UsernameTB" runat="server"></asp:TextBox>
-                    <asp:Label ID="UsernameError" runat="server" Text=""></asp:Label>
+            <div class="form" id="login1">
+                <div class="form-registration">
+                    <h1>Welcome.</h1>
+                    <div class="input-wrapper">
+                        <div class="text-box">
+                            <asp:Label ID="UsernameLbl" runat="server" Text="Username" CssClass="input-label"></asp:Label>
+                            <asp:TextBox ID="UsernameTB" runat="server" CssClass="input-box user"></asp:TextBox>
+                            <asp:Label ID="UsernameError" runat="server" CssClass="error-text" Text="" ForeColor="#DB2B27"></asp:Label>
+                        </div>
+                        <div class="text-box">
+                            <asp:Label ID="UserPasswordLbl" runat="server" Text="Password" CssClass="input-label"></asp:Label>
+                            <asp:TextBox ID="UserPasswordTB" runat="server" CssClass="input-box pass" TextMode="Password"></asp:TextBox>
+                            <asp:Label ID="UserPasswordError" runat="server" CssClass="error-text" Text="" ForeColor="#DB2B27"></asp:Label>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <asp:Label ID="UserPasswordLbl" runat="server" Text="Password"></asp:Label>
-                    <asp:TextBox ID="UserPasswordTB" runat="server"></asp:TextBox>
-                    <asp:Label ID="UserPasswordError" runat="server" Text=""></asp:Label>
-                </div>
-                <div class="RememberMe">
-                    <asp:CheckBox ID="RememberMeCB" runat="server" />
-                    <asp:Label ID="RememberMeLbl" runat="server" Text="Remember Me"></asp:Label>
-                </div>
-
-                <div>
+                <div class="login-function">
                     <asp:Label ID="ErrorLbl" runat="server" Text="" ForeColor="#c21815"></asp:Label>
+                    <asp:Button ID="LoginBtn" runat="server" Text="Login" OnClick="LoginBtn_Click" />
+                    <p>Belum punya akun? <a href="RegisterPage.aspx">Daftar Sekarang</a></p>
                 </div>
 
-                <asp:Button ID="LoginBtn" runat="server" Text="Registrate" OnClick="LoginBtn_Click" />
             </div>
 
         </section>
+
+        <script>
+            function errInput() {
+                var errUsername = document.getElementById('<%= UsernameTB.ClientID %>');
+                var errPassword = document.getElementById('<%= UserPasswordTB.ClientID %>');
+
+                if (errUsername.value === '') {
+                    errUsername.classList.add('error');
+                }
+                else {
+                    errUsername.classList.remove('error');
+                }
+
+                if (errPassword.value === '') {
+                    errPassword.classList.add('error');
+                }
+                else {
+                    errPassword.classList.remove('error');
+                }
+
+            };
+        </script>
     </form>
 </body>
 </html>

@@ -6,31 +6,278 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #4A15C2;
+    background-color: #F5F5FA;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+@font-face {
+    font-family: 'opensans';
+    src: url('../assets/fonts/opensans.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'inter';
+    src: url('../assets/fonts/inter.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'sourceserif4';
+    src: url('../assets/fonts/sourceserif4.ttf') format('truetype');
+}
+
+:root {
+    --primary-color: #ECE6FA;
+    --secondary-color: #606687;
+    --accent-color: #4A15C2;
+    --text-header-color: #000;
+    --subtext-header-color: #6D6D6D;
 }
 
 section {
-    width: 70vw;
-    height: 80vh;
-    border: 1px solid red;
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid var(--primary-color);
     display: flex;
 }
 
 .illustration-tagline {
     width: 50%;
     height: 100%;
-    background-color: #ECE6FA;
+    background: rgb(193,61,21);
+    background: linear-gradient(135deg, rgba(193,61,21,1) 0%, rgba(74,21,194,1) 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.illustration {
+    width: 50%;
+    height: 50%;
+    margin-bottom: 96px;
+}
+
 .illustration-tagline h1 {
+    font-family: 'opensans';
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 2em;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    color: #FFF;
+    margin: 0;
+    width: 80%;
+    letter-spacing: -0.02em;
     text-align: center;
 }
 
-.illustration {
-    width: 70%;
-    height: 70%;
+.form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 100px;
+    gap: 10%;
+    background-color: #FFF;
+}
+
+.form-registration h1 {
+    font-family: 'inter';
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 3.5em;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    color: var(--text-header-color);
+    margin: 0px 0px 72px;
+    width: fit-content;
+    letter-spacing: -0.02em;
+    text-align: center
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.text-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: 50%;
+}
+
+.text-box-wrapper {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.text-box#pass-reg, .text-box#conf-reg {
+    width: 45%;
+}
+
+.input-label {
+    font-family: 'inter';
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 1em;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    color: rgba(0, 0, 0, .5);
+    margin: 0px 0px 12px;
+    width: fit-content;
+    letter-spacing: -0.02em;
+    align-self: flex-start;
+}
+
+.input-box {
+    width: 100%;
+    padding: 12px 12px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    border: 2px solid rgba(168, 168, 168, .3);
+    outline: none;
+    margin-bottom: 6px;
+}
+
+.input-box user, .input-box pass {
+    width: 100%;
+    padding: 12px 12px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    border: 2px solid rgba(168, 168, 168, .3);
+    outline: none;
+    margin-bottom: 6px;
+}
+
+.input-box confirm {
+    width: 100%;
+    padding: 12px 12px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    border: 2px solid rgba(168, 168, 168, .3);
+    outline: none;
+    margin-bottom: 6px;
+}
+
+input#UsernameTB, input#UserPasswordTB, input#ConfirmationPasswordTB, input#UserEmailTB, input#UserPhoneNumberTB {
+    font-family: 'inter';
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 1em;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    color: var(--text-header-color);
+}
+
+.input-box::placeholder {
+    font-family: 'inter';
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 1em;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    color: var(--text-header-color);
+}
+
+.input-box.error {
+    border: 2px solid #DB2B27;
+}
+
+.input-box:focus {
+    border: 2px solid var(--accent-color);
+}
+
+span#UsernameError, span#UserPasswordError, span#ConfirmationPasswordError, span#UserEmailError, span#UserPhoneNumberError {
+    align-self: flex-start;
+}
+
+.error-alert {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 4%;
+    align-items: center;
+    justify-content: center
+}
+
+.error-text {
+    font-family: 'sourceserif4';
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 0.9em;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+.alert-icon {
+    width: 10%;
+    height: 100%;
+    background: url('../assets/icons/alert-circle.svg') no-repeat center;
+    background-size: 24px 24px;
+}
+
+.error-alert div p {
+    font-family: 'inter';
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 1em;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    color: #FFF;
+}
+
+.login-function {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+span#ErrorLbl {
+    font-family: 'inter';
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 0.8em;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    margin-bottom: 12px;
+}
+
+input#LoginBtn, input#RegistrateBtn {
+    width: 60%;
+    padding: 12px 24px;
+    border: none;
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    color: #FFF;
+    font-family: 'inter';
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 1em;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    letter-spacing: 0.2em;
+    color: #FFF;
+}
+
+.login-function p {
+    font-family: 'inter';
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 1em;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    color: rgba(196, 196, 196, 1);
+    margin-top: 24px;
+}
+
+.login-function a {
+    color: var(--subtext-header-color);
+    opacity: 0.9;
 }

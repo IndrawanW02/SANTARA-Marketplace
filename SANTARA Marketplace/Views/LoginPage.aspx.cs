@@ -17,6 +17,11 @@ namespace SANTARA_Marketplace.Views
             {
                 Response.Redirect("~/Views/HomePage.aspx");
             }
+
+            if (IsPostBack)
+            {
+                UserPasswordTB.Attributes["value"] = UserPasswordTB.Text;
+            }
         }
 
         protected void LoginBtn_Click(object sender, EventArgs e)
@@ -24,22 +29,39 @@ namespace SANTARA_Marketplace.Views
             String Status = "";
             String Username = UsernameTB.Text;
             String Password = UserPasswordTB.Text;
-            bool isRemember = RememberMeCB.Checked;
+            //bool isRemember = RememberMeCB.Checked;
 
-            Status = UserAuthController.Login(Username, Password);
+            String usernameStatus = UserAuthController.CheckUsername(Username);
+            String passwordStatus = UserAuthController.CheckPassword(Password);
+
+            UsernameError.Text = usernameStatus;
+            UserPasswordError.Text = passwordStatus;
+
+            if (usernameStatus.Equals("") && passwordStatus.Equals(""))
+            {
+                Status = UserAuthController.Login(Username, Password);
+            }
+            else
+            {
+                if (!(usernameStatus.Equals("")) || !(passwordStatus.Equals("")))
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "CallMyFunction", "errInput();", true);
+                }
+            }
+
 
             if (Status.Equals("Login Success"))
             {
                 User user = UserController.GetUserByUsername(Username);
                 Session["user"] = user;
-                if (isRemember)
-                {
-                    HttpCookie cookie = new HttpCookie("user_cookie");
-                    cookie.Value = user.UserID.ToString();
-                    cookie.Expires = DateTime.Now.AddHours(1);
-                    Response.Cookies.Add(cookie);
-                }
-                Response.Redirect("~/Views/HomePage.aspx");
+
+                HttpCookie cookie = new HttpCookie("user_cookie");
+                cookie.Value = user.UserID.ToString();
+                cookie.Expires = DateTime.Now.AddHours(1);
+                Response.Cookies.Add(cookie);
+
+                string script = "alert('Login Berhasil !'); window.location.href='" + ResolveUrl("~/Views/HomePage.aspx") + "';";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", script, true);
             }
             else
             {

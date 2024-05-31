@@ -19,16 +19,13 @@ namespace SANTARA_Marketplace.Views
 
             if (IsPostBack)
             {
-                //UserPasswordTB.Attributes["value"] = Session["Password"]?.ToString();
-                //ConfirmationPasswordTB.Attributes["value"] = Session["Confirmation"]?.ToString();
+                UserPasswordTB.Attributes["value"] = UserPasswordTB.Text;
+                ConfirmationPasswordTB.Attributes["value"] = ConfirmationPasswordTB.Text;
             }
         }
 
         protected void RegistrateBtn_Click(object sender, EventArgs e)
         {
-            //Session["Password"] = UserPasswordTB.Text;
-            //Session["Confirmation"] = ConfirmationPasswordTB.Text;
-
             String Username = UsernameTB.Text;
             String UserEmailAddress = UserEmailTB.Text;
             String UserPassword = UserPasswordTB.Text;
@@ -44,7 +41,12 @@ namespace SANTARA_Marketplace.Views
             if (UserRegistrationController.IsEligible(Username, UserEmailAddress, UserPassword, ConfirmationPassword, UserPhoneNumber))
             {
                 UserRegistrationController.RegistrateUser(Username, UserEmailAddress, UserPassword, UserPhoneNumber);
-                Response.Redirect("~/Views/LoginPage.aspx");
+                string script = "alert('Akun berhasil dibuat !'); window.location.href='" + ResolveUrl("~/Views/LoginPage.aspx") + "';";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", script, true);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "CallMyFunction", "errInput();", true);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using SANTARA_Marketplace.Handlers;
+using SANTARA_Marketplace.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,6 @@ namespace SANTARA_Marketplace.Controllers
         {
             String response = "";
             if (Username.Equals("")) response = "Username tidak boleh kosong";
-            else if (!(UserRegistrationHandler.DoesUsernameExist(Username))) response = "Username tidak terdaftar";
             return response;
         }
 
