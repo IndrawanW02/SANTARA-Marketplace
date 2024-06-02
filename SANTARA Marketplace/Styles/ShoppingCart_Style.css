@@ -1,0 +1,384 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5fa;
+}
+
+:root {
+    --primary-color: #ECE6FA;
+    --secondary-color: #606687;
+    --accent-color: #4A15C2;
+    --text-header-color: #000;
+    --subtext-header-color: #6D6D6D;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-header-color);
+}
+
+@font-face {
+    font-family: 'opensans';
+    src: url('../assets/fonts/opensans.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'oswald';
+    src: url('../assets/fonts/oswald.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'inter';
+    src: url('../assets/fonts/inter.ttf') format('truetype');
+}
+
+.Page-Path {
+    display: flex;
+    flex-direction: row;
+    background: #FFF;
+    border-bottom: 1px solid #BDBDBD;
+    border-top: 1px solid rgba(186, 186, 186, .5);
+    margin: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 50px rgba(0, 0, 0, 0.1);
+}
+
+.Page-Path div {
+    display: flex;
+    flex-direction: row;
+    padding: 12px 0px;
+    margin-left: 120px;
+}
+
+.NavText:not(:last-child) {
+    font-family: 'opensans';
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 0.9em;
+    font-style: italic;
+    font-variation-settings: "wdth";
+    color: rgba(168, 168, 168, .9);
+    margin: 0px 16px 0px 0px;
+}
+
+.NavText:last-child {
+    font-family: 'opensans';
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 0.9em;
+    font-style: normal;
+    font-variation-settings: "wdth";
+    color: #000000;
+    margin: 0px;
+}
+
+.NavText:hover:not(:last-child) {
+    transition: color 0.2s ease-in;
+    color: var(--accent-color);
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.header {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 36px;
+}
+
+.title {
+    font-family: 'oswald';
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-size: 3.5em;
+    font-style: normal;
+    font-variation-settings: "wdth" ;
+    color: var(--text-header-color);
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+.title span {
+    font-family: 'oswald';
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 0.5em;
+    font-style: normal;
+    font-variation-settings: "wdth" ;
+    color: var(--subtext-header-color);
+    letter-spacing: 0.02em;
+    margin-left: 24px;
+}
+
+.content {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.CardContainer {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Styling for the product cards */
+.ProductCard {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #FFF;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 4px;
+}
+
+.ProductImageContainer {
+    width: auto;
+    min-width: 218px;
+    max-width: 218px;
+    height: 100%;
+}
+
+.ProductImageContainer img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.ProductDescriptionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    padding: 0px 12px;
+}
+
+.ProductDescription {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.desc-container {
+    width: 50%;
+    max-width: 50%;
+}
+
+.ProductName {
+    font-family: 'opensans';
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 1.5em;
+    font-style: normal;
+    font-variation-settings: "wdth" ;
+    color: var(--text-header-color);
+    opacity: 0.8;
+    letter-spacing: -0.04em;
+    margin: 0;
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+    width: 100%; 
+}
+
+.product-spec {
+    font-family: 'opensans';
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 1em;
+    font-style: normal;
+    font-variation-settings: "wdth" ;
+    color: var(--subtext-header-color);
+    letter-spacing: 0.02em;
+    margin: 6px 0;
+}
+
+.ProductPrice {
+    font-family: 'opensans';
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 1.5em;
+    font-style: normal;
+    font-variation-settings: "wdth" ;
+    color: var(--text-header-color);
+    opacity: 0.8;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+.quantityContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-spec#store {
+    font-weight: 300;
+}
+
+.quantity-func{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 45%;
+    height: 100%;
+}
+
+.quantity {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 0.5px solid rgba(0, 0, 0, .2);
+    padding: 6px;
+    max-width: 65%;
+}
+
+/* Styling for quantity buttons and textbox */
+.delete-button {
+    width: 30px;
+    min-height: 100%;
+    background: url('../assets/icons/trash-can.svg') no-repeat center;
+    background-size: 25px 25px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.minus-button {
+    width: 30px;
+    height: 30px;
+    background: url('../assets/icons/minus-icon.svg') no-repeat center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 5px;
+}
+
+.plus-button {
+    width: 30px;
+    height: 30px;
+    background: url('../assets/icons/plus-icon.svg') no-repeat center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0px;
+}
+
+.minus-button:hover, .plus-button:hover {
+    background-color: #0056b3;
+}
+
+.quantity-box {
+    cursor: default;
+    border: none;
+    box-sizing: border-box;
+    width: 20%;
+    font-family: 'opensans';
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 1em;
+    font-style: normal;
+    font-variation-settings: "wdth" ;
+    color: var(--text-header-color);
+    opacity: 0.8;
+    letter-spacing: 0.02em;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+/* Styling for shopping summary */
+.shopping-summary-container {
+    width: 30%;
+    height: fit-content; /* Fixed height */
+    padding: 16px;
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 4px
+}
+
+.shopping-summary-container h1 {
+    font-family: 'oswald';
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-size: 2em;
+    font-style: normal;
+    font-variation-settings: "wdth";
+    color: var(--subtext-header-color);
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+.shopping-summary {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    padding: 0 12px;
+    border: 1px solid rgba(189, 189, 189, .35);
+}
+
+.summary-text {
+    font-family: 'opensans';
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 1em;
+    font-style: normal;
+    font-variation-settings: "wdth" ;
+    color: var(--text-header-color);
+    letter-spacing: 0.02em;
+    margin: 12px 0px;
+}
+
+.summary-text.total {
+    font-weight: 700;
+}
+
+.summary-item {
+    border-bottom: 1px solid rgba(189, 189, 189, .5);
+}
+
+.summary-item.total {
+    border-bottom: none;
+}
+
+.shopping-summary div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Styling for the checkout button */
+.checkout {
+    width: 100%;
+    height: 50px;
+    background-color: #4A15C2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    display: block;
+}
+
+.checkout:hover {
+    background-color: #0056b3;
+}

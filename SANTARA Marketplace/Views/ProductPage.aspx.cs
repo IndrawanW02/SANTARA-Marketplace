@@ -37,9 +37,11 @@ namespace SANTARA_Marketplace.Views
                 BindImageData(productID);
                 BindProductColorVariations(productID);
                 BindProductSizeVariations(productID, ChooseColor.SelectedValue);
+
                 stock.Text = BindProductStock(productID, ChooseColor.SelectedValue, Double.Parse(ChooseSize.SelectedValue));
                 BindProductReview(productID);
 
+                productPageNav.HRef = "~/Views/" + product.ProductCategory + "ProductPage.aspx";
                 Page.DataBind();
             }
         }
@@ -67,10 +69,13 @@ namespace SANTARA_Marketplace.Views
 
         private string BindProductStock(String ProductID, String ProductColor, double ProductSize)
         {
-            AddToCard.Enabled = true;
+            AddToCart.Enabled = true;
             if (StorageController.GetProductStock(ProductID, ProductColor, ProductSize) == 0)
             {
-                AddToCard.Enabled = false;
+                AddToCart.Enabled = false;
+                ScriptManager.RegisterStartupScript(this, GetType(), "CallMyFunction", "disableButton();", true);
+
+                return "Tidak Tersedia";
             }
             return StorageController.GetProductStock(ProductID, ProductColor, ProductSize).ToString();
         }

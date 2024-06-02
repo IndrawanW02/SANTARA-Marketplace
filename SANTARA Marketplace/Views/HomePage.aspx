@@ -79,7 +79,7 @@
 
                 <div class="categories">
                     <div class="category-wrapper" id="man-wrapper">
-                        <a href="ManProductPage.aspx">
+                        <a href="PriaProductPage.aspx">
                             <div class="category-card">
                                 <div class="category-logo">
                                     <img src="../Assets/Icons/ManIcon.png" />
@@ -92,7 +92,7 @@
                         </a>
                     </div>
                     <div class="category-wrapper" id="woman-wrapper">
-                        <a href="WomanProductPage.aspx">
+                        <a href="WanitaProductPage.aspx">
                             <div class="category-card">
                                 <div class="category-logo">
                                     <img src="../Assets/Icons/WomanIcon.png" />
@@ -105,7 +105,7 @@
                         </a>
                     </div>
                     <div class="category-wrapper" id="kid-wrapper">
-                        <a href="KidProductPage.aspx">
+                        <a href="AnakProductPage.aspx">
                             <div class="category-card">
                                 <div class="category-logo">
                                     <img src="../Assets/Icons/KidIcon.png" />

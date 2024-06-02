@@ -1,4 +1,4 @@
-﻿<%@ Page Title="SANTARA" Language="C#" MasterPageFile="~/Template/HeaderAndFooter.Master" AutoEventWireup="true" CodeBehind="WomanProductPage.aspx.cs" Inherits="SANTARA_Marketplace.Views.MenProductPage" %>
+﻿<%@ Page Title="SANTARA" Language="C#" MasterPageFile="~/Template/HeaderAndFooter.Master" AutoEventWireup="true" CodeBehind="AnakProductPage.aspx.cs" Inherits="SANTARA_Marketplace.Views.KidProductPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../Styles/[Category]ProductPage_Styles.css" rel="stylesheet" />
@@ -7,16 +7,16 @@
     <nav class="Page-Path">
         <div>
             <a href="HomePage.aspx" class="NavText">Beranda</a>
-            <p class="NavText">></p>
+            <p class="NavText">/</p>
             <a href="CataloguePage.aspx" class="NavText">Katalog</a>
-            <p class="NavText">></p>
-            <p class="NavText">Sepatu Wanita</p>
+            <p class="NavText">/</p>
+            <p class="NavText">Sepatu Anak-anak</p>
         </div>
     </nav>
 
-    <div class="wanita-header">
+    <div class="anak-header">
         <div class="header-container">
-            <h3>SEPATU WANITA</h3>
+            <h3>SEPATU ANAK</h3>
             <div class="search-bar-container">
                 <label for="ShoeNameOrBrand">SHOE NAME / BRAND</label>
                 <div class="bar">
@@ -95,6 +95,5 @@
             </div>
         </div>
     </div>
-
 
 </asp:Content>

@@ -10,6 +10,7 @@
 
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div>
             <header>
                 <nav>
@@ -49,7 +50,7 @@
                     <a class="website-name-footer" href="../Views/HomePage.aspx">
                         <img class="logo" src="../Assets/Images/santara-logo.svg" />
                     </a>
-                    <h4>&copy; 2024 SANTARA.</h4>
+                    <h4>&copy;2024 SANTARA.</h4>
                 </div>
 
                 <div class="FooterContent">
@@ -77,6 +78,14 @@
 
             </footer>
         </div>
+
+        <script>
+            function addOutline() {
+                var wrapperElement = document.querySelector('.wrapper');
+                console.log(wrapperElement);
+                wrapperElement.classList.add('active');
+            };
+        </script>
     </form>
 </body>
 </html>

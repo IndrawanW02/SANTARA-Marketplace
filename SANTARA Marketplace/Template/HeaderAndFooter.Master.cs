@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -39,6 +40,7 @@ namespace SANTARA_Marketplace.Template
                 Username.Text = user.Username;
                 UserProfilePic.Visible = true;
                 Username.Visible = true;
+                ScriptManager.RegisterStartupScript(this, GetType(), "CallMyFunction", "addOutline();", true);
             }
         }
 

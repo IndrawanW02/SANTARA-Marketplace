@@ -15,6 +15,15 @@ namespace SANTARA_Marketplace.Views
     {
 
         /// <summary>
+        /// productPageNav control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor productPageNav;
+
+        /// <summary>
         /// ImageRepeater control.
         /// </summary>
         /// <remarks>
@@ -87,13 +96,13 @@ namespace SANTARA_Marketplace.Views
         protected global::System.Web.UI.WebControls.Label stock;
 
         /// <summary>
-        /// AddToCard control.
+        /// AddToCart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddToCard;
+        protected global::System.Web.UI.WebControls.Button AddToCart;
 
         /// <summary>
         /// BuyNow control.
