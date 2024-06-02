@@ -34,5 +34,10 @@ namespace SANTARA_Marketplace.Controllers
         {
             return StorageHandler.GetStorageID(ProductID, ProductColor, ProductSize);
         }
+
+        public static void UpdateStock(String StorageID, int updatedStock)
+        {
+            StorageHandler.UpdateStock(StorageID, updatedStock);
+        }
     }
 }

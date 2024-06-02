@@ -20,9 +20,24 @@ namespace SANTARA_Marketplace.Controllers
             ShoppingCartHandler.AddToCart(UserID, StorageID);
         }
 
-        public static int GetUserTotalExpenses(String UserID)
+        public static void RemoveUserCart(String UserID)
         {
-            return ShoppingCartHandler.GetUserTotalExpenses(UserID);
+            ShoppingCartHandler.RemoveUserCart(UserID);
+        }
+
+        public static void RemoveCertainItem(String CartID)
+        {
+            ShoppingCartHandler.RemoveCertainItem(CartID);
+        }
+
+        public static void UpdateCartQuantity(String cartID, int Qty)
+        {
+            ShoppingCartHandler.UpdateCartQuantity(cartID, Qty);
+        }
+
+        public static int GetTotalShoppingCart(String UserID)
+        {
+            return ShoppingCartHandler.GetTotalShoppingCart(UserID);
         }
     }
 }

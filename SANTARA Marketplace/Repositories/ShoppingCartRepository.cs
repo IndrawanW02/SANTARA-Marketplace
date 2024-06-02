@@ -26,19 +26,43 @@ namespace SANTARA_Marketplace.Repositories
                     select sc).ToList();
         }
 
-        public int GetUserTotalExpenses(String UserID)
+        public ShoppingCart GetCertainCartItem(String CartID)
         {
             return (from sc 
                     in db.ShoppingCarts 
-                    where sc.UserID.Equals(UserID) 
-                    select sc.Storage.Product.ProductPrice).Sum();
+                    where sc.CartID.Equals(CartID) 
+                    select sc).FirstOrDefault();
         }
 
-        public string GetLastCardID()
+        public string GetLastCartID()
         {
             return (from u
                     in db.ShoppingCarts
                     select u.CartID).ToList().LastOrDefault();
+        }
+
+        public void RemoveUserCart(String UserID)
+        {
+            List<ShoppingCart> toRemove = GetUserShoppingCart(UserID);
+            foreach (ShoppingCart cart in toRemove)
+            {
+                db.ShoppingCarts.Remove(cart);
+            }
+            db.SaveChanges();
+        }
+
+        public void RemoveCertainItem(String CartID)
+        {
+            ShoppingCart cart = GetCertainCartItem(CartID);
+            db.ShoppingCarts.Remove(cart);
+            db.SaveChanges();
+        }
+
+        public void UpdateCartQuantity(String cartID, int Qty)
+        {
+            ShoppingCart cartItem = GetCertainCartItem(cartID);
+            cartItem.Quantity = Qty;
+            db.SaveChanges();
         }
     }
 }

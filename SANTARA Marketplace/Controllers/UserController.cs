@@ -18,5 +18,10 @@ namespace SANTARA_Marketplace.Controllers
         {
             return UserHandler.GetUserByID(UserID);
         }
+
+        public static void UpdateUserBalance(String UserID, int newBalance)
+        {
+            UserHandler.UpdateUserBalance(UserID, newBalance);
+        }
     }
 }

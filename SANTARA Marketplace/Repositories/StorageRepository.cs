@@ -46,5 +46,20 @@ namespace SANTARA_Marketplace.Repositories
                     where s.ProductID.Equals(ProductID) && s.ProductColor.Equals(ProductColor) && s.ProductSize == ProductSize 
                     select s.StorageID).FirstOrDefault();
         }
+
+        public Storage GetStorageByID(String StorageID)
+        {
+            return (from s 
+                    in db.Storages 
+                    where s.StorageID.Equals(StorageID) 
+                    select s).FirstOrDefault();
+        }
+
+        public void UpdateStock(String StorageID, int updatedStock)
+        {
+            Storage updateStorage = GetStorageByID(StorageID);
+            updateStorage.ProductStock = updatedStock;
+            db.SaveChanges();
+        }
     }
 }

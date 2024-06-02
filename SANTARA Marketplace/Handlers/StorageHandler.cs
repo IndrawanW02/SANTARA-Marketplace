@@ -38,5 +38,11 @@ namespace SANTARA_Marketplace.Handlers
             StorageRepository storageRepository = new StorageRepository();
             return storageRepository.GetStorageID(ProductID ,ProductColor, ProductSize);
         }
+
+        public static void UpdateStock(String StorageID, int updatedStock)
+        {
+            StorageRepository storageRepository = new StorageRepository();
+            storageRepository.UpdateStock(StorageID, updatedStock);
+        }
     }
 }

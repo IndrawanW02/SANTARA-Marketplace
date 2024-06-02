@@ -59,5 +59,11 @@ namespace SANTARA_Marketplace.Handlers
             ProductRepository productRepository = new ProductRepository();
             return productRepository.GetProductByID(ProductID);
         }
+
+        public static void UpdateProductSold(String ProductID, int soldCount)
+        {
+            ProductRepository productRepository= new ProductRepository();
+            productRepository.UpdateProductSold(ProductID, soldCount);
+        }
     }
 }

@@ -20,5 +20,11 @@ namespace SANTARA_Marketplace.Handlers
             UserRepository userRepo = new UserRepository();
             return userRepo.GetUserByID(UserID);
         }
+
+        public static void UpdateUserBalance(String UserID, int newBalance)
+        {
+            UserRepository userRepo = new UserRepository();
+            userRepo.UpdateUserBalance(UserID, newBalance);
+        }
     }
 }

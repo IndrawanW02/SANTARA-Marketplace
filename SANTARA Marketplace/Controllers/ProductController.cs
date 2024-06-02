@@ -49,5 +49,10 @@ namespace SANTARA_Marketplace.Controllers
         {
             return ProductHandler.GetProductByID(ProductID);
         }
+
+        public static void UpdateProductSold(String ProductID, int soldCount)
+        {
+            ProductHandler.UpdateProductSold(ProductID, soldCount);
+        }
     }
 }

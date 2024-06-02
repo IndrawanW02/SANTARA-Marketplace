@@ -75,5 +75,11 @@ namespace SANTARA_Marketplace.Repositories
                     select p).ToList().Count();
         }
 
+        public void UpdateProductSold(String ProductID, int soldCount)
+        {
+            Product updateSoldCount = GetProductByID(ProductID);
+            updateSoldCount.ProductSold = soldCount;
+            db.SaveChanges();
+        }
     }
 }

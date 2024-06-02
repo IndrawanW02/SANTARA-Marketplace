@@ -51,6 +51,11 @@ namespace SANTARA_Marketplace.Repositories
                     select u.UserID).ToList().LastOrDefault();
         }
 
-
+        public void UpdateUserBalance(String UserID, int newBalance)
+        {
+            User updateBalance = GetUserByID(UserID);
+            updateBalance.UserBalance = newBalance;
+            db.SaveChanges();
+        }
     }
 }

@@ -15,16 +15,16 @@ namespace SANTARA_Marketplace.Handlers
             return cartRepository.GetUserShoppingCart(UserID);
         }
 
-        public static string GetLastCardID()
+        public static string GetLastCartID()
         {
             ShoppingCartRepository cartRepository = new ShoppingCartRepository();
-            return cartRepository.GetLastCardID();
+            return cartRepository.GetLastCartID();
         }
 
         public static String GenerateCartID()
         {
             String newID = "";
-            String lastID = ShoppingCartHandler.GetLastCardID();
+            String lastID = GetLastCartID();
             if (lastID == null)
             {
                 newID = "SC001";
@@ -45,10 +45,33 @@ namespace SANTARA_Marketplace.Handlers
             cartRepository.AddCartItem(GenerateCartID(), UserID, StorageID, defaultQuantity);
         }
 
-        public static int GetUserTotalExpenses(String UserID)
+        public static void RemoveUserCart(String UserID)
         {
             ShoppingCartRepository shoppingCartRepository = new ShoppingCartRepository();
-            return shoppingCartRepository.GetUserTotalExpenses(UserID);
+            shoppingCartRepository.RemoveUserCart(UserID);
+        }
+
+        public static void RemoveCertainItem(String CartID)
+        {
+            ShoppingCartRepository shoppingCartRepository = new ShoppingCartRepository();
+            shoppingCartRepository.RemoveCertainItem(CartID);
+        }
+
+        public static void UpdateCartQuantity(String cartID, int Qty)
+        {
+            ShoppingCartRepository shoppingCartRepository= new ShoppingCartRepository();
+            shoppingCartRepository.UpdateCartQuantity(cartID, Qty);
+        }
+
+        public static int GetTotalShoppingCart(String UserID)
+        {
+            int totalPrice = 0;
+            List<ShoppingCart> cart = GetUserShoppingCart(UserID);
+            foreach (ShoppingCart sc in cart)
+            {
+                totalPrice = totalPrice + (sc.Storage.Product.ProductPrice * sc.Quantity);
+            }
+            return totalPrice;
         }
     }
 }
