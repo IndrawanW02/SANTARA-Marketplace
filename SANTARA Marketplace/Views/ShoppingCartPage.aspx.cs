@@ -5,13 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Util;
 
 namespace SANTARA_Marketplace.Views
 {
     public partial class ShoppingCartPage : System.Web.UI.Page
     {
+        public User user;
         public List<ShoppingCart> cartItem = null;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,7 +24,6 @@ namespace SANTARA_Marketplace.Views
             }
             else
             {
-                User user;
                 if (Session["user"] == null)
                 {
                     var id = Request.Cookies["user_cookie"].Values;
@@ -32,13 +34,32 @@ namespace SANTARA_Marketplace.Views
                 {
                     user = (User)Session["user"];
                 }
+
                 cartItem = ShoppingCartController.GetUserShoppingCart(user.UserID);
-                CardRepeater.DataSource = cartItem;
-                CardRepeater.DataBind();
-                TransactionRepeater.DataSource = cartItem;
-                TransactionRepeater.DataBind();
-                TotalPriceLbl.Text = HeaderAndFooter.GetPrice(GetTotalCartPrice());
+
+                if (!IsPostBack)
+                {
+                    CardRepeater.DataSource = cartItem;
+                    CardRepeater.DataBind();
+                    TransactionRepeater.DataSource = cartItem;
+                    TransactionRepeater.DataBind();
+                }
+
+                TotalPriceLbl.Text = GetUserTotalExpenses(user.UserID);
+
             }
+        }
+
+        [WebMethod]
+        public static void SaveItemQuantity(String CartID, int Qty)
+        {
+            ShoppingCartController.UpdateCartQuantity(CartID, Qty);
+        }
+
+        [WebMethod]
+        public static string GetUserTotalExpenses(String UserID)
+        {
+            return HeaderAndFooter.GetPrice(ShoppingCartController.GetTotalShoppingCart(UserID));
         }
 
         protected void quantity_DataBinding(object sender, EventArgs e)
@@ -49,55 +70,35 @@ namespace SANTARA_Marketplace.Views
             textBox.Text = dataItem.Quantity.ToString();
         }
 
-        public int GetTotalCartPrice()
-        {
-            int totalPrice = 0;
-            foreach (var item in cartItem)
-            {
-                totalPrice = totalPrice + (item.Quantity * item.Storage.Product.ProductPrice);
-            }
-            return totalPrice;
-        }
-
-        protected void minus_Click(object sender, EventArgs e)
-        {
-            Button minusButton = (Button)sender;
-            RepeaterItem repeaterItem = (RepeaterItem)minusButton.Parent;
-            TextBox txtQuantity = (TextBox)repeaterItem.FindControl("QuantityTB");
-            
-            if (txtQuantity != null)
-            {
-                int quantity = int.Parse(txtQuantity.Text);
-                if (quantity > 1)
-                {
-                    quantity--;
-                    txtQuantity.Text = quantity.ToString();
-                }
-            }
-        }
-
-        protected void plus_Click(object sender, EventArgs e)
-        {
-            Button plusButton = (Button)sender;
-            RepeaterItem repeaterItem = (RepeaterItem)plusButton.NamingContainer;
-            TextBox txtQuantity = (TextBox)repeaterItem.FindControl("QuantityTB");
-            Label lblStock = (Label)repeaterItem.FindControl("AvailableStock");
-
-            if (txtQuantity != null)
-            {
-                int quantity = int.Parse(txtQuantity.Text);
-                int stock = int.Parse(lblStock.Text);
-                if (quantity < stock)
-                {
-                    quantity++;
-                    txtQuantity.Text = quantity.ToString();
-                }
-            }
-        }
-
         protected void CheckOutBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Views/CheckOutPage.aspx");
+        }
+
+        protected void CardRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                ShoppingCart item = (ShoppingCart)e.Item.DataItem;
+
+                TextBox quantityTB = (TextBox)e.Item.FindControl("QuantityTB");
+                if (quantityTB != null)
+                {
+                    quantityTB.Attributes.Add("max", item.Storage.ProductStock.ToString()); // Set nilai maksimum
+                }
+            }
+        }
+
+        protected void DeleteItemBtn_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            String itemID = btn.CommandArgument;
+
+            ShoppingCartController.RemoveCertainItem(itemID);
+
+            cartItem = ShoppingCartController.GetUserShoppingCart(user.UserID);
+            CardRepeater.DataSource = cartItem;
+            CardRepeater.DataBind();
         }
     }
 }

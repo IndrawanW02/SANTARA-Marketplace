@@ -15,22 +15,13 @@ namespace SANTARA_Marketplace.Views
     {
 
         /// <summary>
-        /// ScriptManager1 control.
+        /// AddressBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-
-        /// <summary>
-        /// Address control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Address;
+        protected global::System.Web.UI.WebControls.TextBox AddressBox;
 
         /// <summary>
         /// ChangeAddress control.
@@ -87,22 +78,58 @@ namespace SANTARA_Marketplace.Views
         protected global::System.Web.UI.WebControls.Button ChoosePaymentBtn;
 
         /// <summary>
-        /// LinkButton1 control.
+        /// CreditCard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.LinkButton CreditCard;
 
         /// <summary>
-        /// as control.
+        /// CClbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label @as;
+        protected global::System.Web.UI.WebControls.Label CClbl;
+
+        /// <summary>
+        /// BCA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton BCA;
+
+        /// <summary>
+        /// BCAlbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label BCAlbl;
+
+        /// <summary>
+        /// BRI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton BRI;
+
+        /// <summary>
+        /// BRIlbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label BRIlbl;
 
         /// <summary>
         /// SantaraPay control.
@@ -130,6 +157,15 @@ namespace SANTARA_Marketplace.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label PaymentErr;
+
+        /// <summary>
+        /// BalanceCheck control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField BalanceCheck;
 
         /// <summary>
         /// hfTriggerPostback control.
