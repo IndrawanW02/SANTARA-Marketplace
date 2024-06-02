@@ -79,11 +79,17 @@
     <Content Include="App_Data\SantaraDatabase_log.ldf">
       <DependentUpon>SantaraDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Assets\Icons\alert-circle.svg" />
+    <Content Include="Assets\Icons\trash-can.svg" />
+    <Content Include="Assets\Images\BCA-logo.png" />
+    <Content Include="Assets\Images\BRI-logo.png" />
     <Content Include="Assets\Images\DefaultProfileImage.png" />
     <Content Include="Assets\Icons\arrow-down.svg" />
     <Content Include="Assets\Icons\arrow-up.svg" />
     <Content Include="Assets\Icons\magnifying-glassicon.svg" />
     <Content Include="Assets\Images\Illustration.svg" />
+    <Content Include="Assets\Images\J&amp;T-logo.png" />
+    <Content Include="Assets\Images\JNE-logo.png" />
     <Content Include="Assets\Images\santara-logo.svg" />
     <Content Include="Assets\Icons\KidIcon.png" />
     <Content Include="Assets\Images\KidProductHeader.jpg" />
@@ -93,6 +99,7 @@
     <Content Include="Assets\Icons\plus-icon.svg" />
     <Content Include="Assets\Images\RegisterIllustration.svg" />
     <Content Include="Assets\Icons\WomanIcon.png" />
+    <Content Include="Assets\Images\SiCepat-logo.png" />
     <Content Include="Assets\Images\WomanProductHeader.png" />
     <Content Include="Model\SantaraModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -111,18 +118,19 @@
     <Content Include="Styles\HeaderAndFooter_Styles.css" />
     <Content Include="Styles\HomePage_Styles.css" />
     <Content Include="Styles\ProductPage_Style.css" />
+    <Content Include="Styles\ShoppingCart_Style.css" />
     <Content Include="Styles\[Auth]Page_Styles.css" />
     <Content Include="Styles\[Category]ProductPage_Styles.css" />
     <Content Include="Styles\[PaymentProcess]Page_Styles.css" />
     <Content Include="Views\CataloguePage.aspx" />
     <Content Include="Views\CheckOutPage.aspx" />
     <Content Include="Views\HomePage.aspx" />
-    <Content Include="Views\KidProductPage.aspx" />
+    <Content Include="Views\AnakProductPage.aspx" />
     <Content Include="Views\LoginPage.aspx" />
-    <Content Include="Views\ManProductPage.aspx" />
+    <Content Include="Views\PriaProductPage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Views\ShoppingCartPage.aspx" />
-    <Content Include="Views\WomanProductPage.aspx" />
+    <Content Include="Views\WanitaProductPage.aspx" />
     <Content Include="Views\ProductPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -133,12 +141,15 @@
     <Compile Include="Controllers\RatingController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\StorageController.cs" />
+    <Compile Include="Controllers\TransactionController.cs" />
+    <Compile Include="Controllers\TransactionDetailController.cs" />
     <Compile Include="Controllers\UserAuthController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserRegistrationController.cs" />
     <Compile Include="Factory\AdvertisementFactory.cs" />
     <Compile Include="Factory\ShoppingCartFactory.cs" />
     <Compile Include="Factory\ImageFactory.cs" />
+    <Compile Include="Factory\TransactionDetailFactory.cs" />
     <Compile Include="Factory\TransactionFactory.cs" />
     <Compile Include="Factory\UserFactory.cs" />
     <Compile Include="Handlers\AdvertisementHandler.cs" />
@@ -147,6 +158,8 @@
     <Compile Include="Handlers\RatingHandler.cs" />
     <Compile Include="Handlers\ShoppingCartHandler.cs" />
     <Compile Include="Handlers\StorageHandler.cs" />
+    <Compile Include="Handlers\TransactionDetailHandler.cs" />
+    <Compile Include="Handlers\TransactionHandler.cs" />
     <Compile Include="Handlers\UserAuthHandler.cs" />
     <Compile Include="Handlers\UserHandler.cs" />
     <Compile Include="Handlers\UserRegistrationHandler.cs" />
@@ -211,6 +224,7 @@
     <Compile Include="Repositories\ShoppingCartRepository.cs" />
     <Compile Include="Repositories\StorageRepository.cs" />
     <Compile Include="Repositories\StoreRepository.cs" />
+    <Compile Include="Repositories\TransactionDetailRepository.cs" />
     <Compile Include="Repositories\TransactionRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Template\HeaderAndFooter.Master.cs">
@@ -241,12 +255,12 @@
     <Compile Include="Views\HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\KidProductPage.aspx.cs">
-      <DependentUpon>KidProductPage.aspx</DependentUpon>
+    <Compile Include="Views\AnakProductPage.aspx.cs">
+      <DependentUpon>AnakProductPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\KidProductPage.aspx.designer.cs">
-      <DependentUpon>KidProductPage.aspx</DependentUpon>
+    <Compile Include="Views\AnakProductPage.aspx.designer.cs">
+      <DependentUpon>AnakProductPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
@@ -255,12 +269,12 @@
     <Compile Include="Views\LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ManProductPage.aspx.cs">
-      <DependentUpon>ManProductPage.aspx</DependentUpon>
+    <Compile Include="Views\PriaProductPage.aspx.cs">
+      <DependentUpon>PriaProductPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ManProductPage.aspx.designer.cs">
-      <DependentUpon>ManProductPage.aspx</DependentUpon>
+    <Compile Include="Views\PriaProductPage.aspx.designer.cs">
+      <DependentUpon>PriaProductPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\RegisterPage.aspx.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
@@ -276,12 +290,12 @@
     <Compile Include="Views\ShoppingCartPage.aspx.designer.cs">
       <DependentUpon>ShoppingCartPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\WomanProductPage.aspx.cs">
-      <DependentUpon>WomanProductPage.aspx</DependentUpon>
+    <Compile Include="Views\WanitaProductPage.aspx.cs">
+      <DependentUpon>WanitaProductPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\WomanProductPage.aspx.designer.cs">
-      <DependentUpon>WomanProductPage.aspx</DependentUpon>
+    <Compile Include="Views\WanitaProductPage.aspx.designer.cs">
+      <DependentUpon>WanitaProductPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductPage.aspx.cs">
       <DependentUpon>ProductPage.aspx</DependentUpon>
