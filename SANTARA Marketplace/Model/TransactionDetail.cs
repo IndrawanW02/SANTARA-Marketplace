@@ -21,6 +21,7 @@ namespace SANTARA_Marketplace.Model
         public string ShipmentMethod { get; set; }
         public string ShipmentPrice { get; set; }
         public string Status { get; set; }
+        public bool RatingStatus { get; set; }
     
         public virtual Storage Storage { get; set; }
         public virtual Store Store { get; set; }
