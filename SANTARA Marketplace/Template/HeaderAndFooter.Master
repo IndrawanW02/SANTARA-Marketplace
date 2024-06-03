@@ -25,10 +25,10 @@
                     <a href="../Views/ShoppingCartPage.aspx">
                         <p class="nav-text">Keranjang</p>
                     </a>
-                    <a href="../Views/CataloguePage.aspx">
+                    <a href="../Views/TransactionHistory.aspx">
                         <p class="nav-text">Transaksi</p>
                     </a>
-                    <a href="../Views/CataloguePage.aspx">
+                    <a href="#">
                         <p class="nav-text">MyStore</p>
                     </a>
                 </nav>
