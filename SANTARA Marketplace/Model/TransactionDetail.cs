@@ -19,9 +19,10 @@ namespace SANTARA_Marketplace.Model
         public string StoreID { get; set; }
         public int Quantity { get; set; }
         public string ShipmentMethod { get; set; }
-        public string ShipmentPrice { get; set; }
+        public int ShipmentPrice { get; set; }
         public string Status { get; set; }
         public bool RatingStatus { get; set; }
+        public string ReceiptNumber { get; set; }
     
         public virtual Storage Storage { get; set; }
         public virtual Store Store { get; set; }
