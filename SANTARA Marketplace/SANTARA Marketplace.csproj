@@ -119,6 +119,7 @@
     <Content Include="Styles\HomePage_Styles.css" />
     <Content Include="Styles\ProductPage_Style.css" />
     <Content Include="Styles\ShoppingCart_Style.css" />
+    <Content Include="Styles\TransactionHistory_Styles.css" />
     <Content Include="Styles\[Auth]Page_Styles.css" />
     <Content Include="Styles\[Category]ProductPage_Styles.css" />
     <Content Include="Styles\[PaymentProcess]Page_Styles.css" />
@@ -130,6 +131,7 @@
     <Content Include="Views\PriaProductPage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Views\ShoppingCartPage.aspx" />
+    <Content Include="Views\TransactionHistory.aspx" />
     <Content Include="Views\WanitaProductPage.aspx" />
     <Content Include="Views\ProductPage.aspx" />
     <Content Include="Web.config" />
@@ -289,6 +291,13 @@
     </Compile>
     <Compile Include="Views\ShoppingCartPage.aspx.designer.cs">
       <DependentUpon>ShoppingCartPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransactionHistory.aspx.cs">
+      <DependentUpon>TransactionHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TransactionHistory.aspx.designer.cs">
+      <DependentUpon>TransactionHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\WanitaProductPage.aspx.cs">
       <DependentUpon>WanitaProductPage.aspx</DependentUpon>
