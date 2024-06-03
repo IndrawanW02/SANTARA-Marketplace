@@ -8,7 +8,7 @@ namespace SANTARA_Marketplace.Factory
 {
     public class TransactionDetailFactory
     {
-        public static TransactionDetail Create(String TransactionID, String StorageID, String StoreID, int Quantity, String ShipmentMethod, String ShipmentPrice, String Status, bool IsRated)
+        public static TransactionDetail Create(String TransactionID, String StorageID, String StoreID, int Quantity, String ShipmentMethod, int ShipmentPrice, String Status, bool IsRated, String ReceiptNumber)
         {
             TransactionDetail transactionDetail = new TransactionDetail();
             transactionDetail.TransactionID = TransactionID;
@@ -19,6 +19,7 @@ namespace SANTARA_Marketplace.Factory
             transactionDetail.ShipmentPrice = ShipmentPrice;
             transactionDetail.Status = Status;
             transactionDetail.RatingStatus = IsRated;
+            transactionDetail.ReceiptNumber = ReceiptNumber;
             return transactionDetail;
         }
     }

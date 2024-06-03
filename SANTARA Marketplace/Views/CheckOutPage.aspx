@@ -207,49 +207,8 @@
         </div>
 
         <div id="overlay"></div>
-        <asp:HiddenField ID="hfTriggerPostback" runat="server" />
-
     </section>
     <script>
-        function enablePopUp() {
-            console.log("JavaScript terhubung dan DOM telah dimuat.");
-
-            const openModalButtons = document.querySelectorAll('.open-modal-button');
-            const closeModalButtons = document.querySelectorAll('[data-close-modal]');
-            const overlay = document.getElementById('overlay');
-
-            closeModalButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const modal = button.closest('.modal');
-                    console.log("closeModalButtons:", modal);
-
-                    closeModal(modal);
-                });
-            });
-
-            openModalButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const modal = document.querySelector(button.getAttribute('data-modal-target'));
-                    console.log("openModalButtons:", modal);
-
-                    openModal(modal);
-                });
-            });
-
-
-            function openModal(modal) {
-                if (modal == null) return;
-                modal.classList.add('active');
-                overlay.classList.add('active');
-            }
-
-            function closeModal(modal) {
-                if (modal == null) return;
-                modal.classList.remove('active');
-                overlay.classList.remove('active');
-            }
-        }
-
         function openModalFromCodeBehind() {
             const openModalButtons = document.querySelectorAll('.choose-payment');
             const modalButton = openModalButtons[0];

@@ -197,7 +197,8 @@ namespace SANTARA_Marketplace.Views
                 UserController.UpdateUserBalance(user.UserID, newBalance);
 
                 String transactionID = TransactionController.GenerateTransactionID();
-                TransactionController.AddTransaction(transactionID, user.UserID, choosedPayment.ID);
+                String AddressDestination = AddressBox.Text;
+                TransactionController.AddTransaction(transactionID, user.UserID, choosedPayment.ID, AddressDestination, GetTotalExpense());
 
                 int counter = 0;
                 foreach (RepeaterItem item in CardRepeater.Items)
@@ -211,7 +212,7 @@ namespace SANTARA_Marketplace.Views
                     String StoreID = Item.Storage.Product.StoreID;
                     int Quantity = Item.Quantity;
 
-                    TransactionDetailController.AddTransactionDetail(transactionID, StorageID, StoreID, Quantity, hfShipmentMethod.Value, hfShipmentPrice.Value);
+                    TransactionDetailController.AddTransactionDetail(transactionID, StorageID, StoreID, Quantity, hfShipmentMethod.Value, Convert.ToInt32(hfShipmentPrice.Value));
                     StorageController.UpdateStock(StorageID, Item.Storage.ProductStock - Quantity);
                     ProductController.UpdateProductSold(Item.Storage.ProductID, Item.Storage.Product.ProductSold + Quantity);
                     counter++;
