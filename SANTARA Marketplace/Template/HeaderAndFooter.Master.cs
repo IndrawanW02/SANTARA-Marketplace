@@ -19,8 +19,7 @@ namespace SANTARA_Marketplace.Template
             {
                 SignInBtn.Visible = true;
                 SignUpBtn.Visible = true;
-                UserProfilePic.Visible = false;
-                Username.Visible = false;
+                ScriptManager.RegisterStartupScript(this, GetType(), "CallMyFunction", "guestUser();", true);
             }
             else
             {
@@ -38,9 +37,9 @@ namespace SANTARA_Marketplace.Template
 
                 UserProfilePic.ImageUrl = GetImageBase64String(user.UserProfilePic);
                 Username.Text = user.Username;
-                UserProfilePic.Visible = true;
-                Username.Visible = true;
-                ScriptManager.RegisterStartupScript(this, GetType(), "CallMyFunction", "addOutline();", true);
+                UserBalanceLbl.Text = GetPrice(user.UserBalance);
+
+                ScriptManager.RegisterStartupScript(this, GetType(), "CallMyFunction", "customer();", true);
             }
         }
 
@@ -81,6 +80,38 @@ namespace SANTARA_Marketplace.Template
         protected void SignUpBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Views/RegisterPage.aspx");
+        }
+
+        protected void LogOut_Click(object sender, EventArgs e)
+        {
+            String[] cookies = Request.Cookies.AllKeys;
+            foreach (var cookie in cookies)
+            {
+                Response.Cookies[cookie].Expires = DateTime.Now.AddDays(-1);
+            }
+            Session.Remove("user");
+            Response.Redirect("~/Views/HomePage.aspx");
+        }
+
+        protected void TopUp_Click(object sender, EventArgs e)
+        {
+            User user;
+            if (Session["user"] == null)
+            {
+                var id = Request.Cookies["user_cookie"].Values;
+                user = UserController.GetUserByID(id.ToString());
+                Session["user"] = user;
+            }
+            else
+            {
+                user = (User)Session["user"];
+            }
+
+            int newBalance = user.UserBalance + 1000000;
+            UserController.UpdateUserBalance(user.UserID, newBalance);
+            ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('TopUp Berhasil!');", true);
+            UserBalanceLbl.Text = GetPrice(user.UserBalance);
+
         }
     }
 }

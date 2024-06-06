@@ -15,11 +15,7 @@ namespace SANTARA_Marketplace.Views
     {
         String productID = null;
         public Product product = null;
-        public List<ProductImage> productImages = null;
         public List<Storage> productVariations = null;
-        public List<String> productColor = null;
-        public List<double> productSizes = null;
-        public List<Rating> productReview = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -48,21 +44,21 @@ namespace SANTARA_Marketplace.Views
 
         private void BindImageData(String ProductID)
         {
-            productImages = ImageController.GetProductImages(ProductID);
+            List<ProductImage> productImages = ImageController.GetProductImages(ProductID);
             ImageRepeater.DataSource = productImages;
             ImageRepeater.DataBind();
         }
 
         private void BindProductColorVariations(String ProductID)
         {
-            productColor = StorageController.GetProductColorVariations(ProductID);
+            List<String> productColor = StorageController.GetProductColorVariations(ProductID);
             ChooseColor.DataSource = productColor;
             ChooseColor.DataBind();
         }
 
         private void BindProductSizeVariations(String ProductID, String ProductColor)
         {
-            productSizes = StorageController.GetProductAvailableSizes(ProductID, ProductColor);
+            List<double> productSizes = StorageController.GetProductAvailableSizes(ProductID, ProductColor);
             ChooseSize.DataSource = productSizes;
             ChooseSize.DataBind();
         }
@@ -82,13 +78,14 @@ namespace SANTARA_Marketplace.Views
 
         private void BindProductReview(String ProductID)
         {
-            productReview = RatingController.GetProductReview(ProductID);
+            List<Rating> productReview = RatingController.GetProductReview(ProductID);
             ReviewRepeater.DataSource = productReview;
             ReviewRepeater.DataBind();
         }
 
         protected void ChooseColor_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             BindProductSizeVariations(productID, ChooseColor.SelectedValue);
             stock.Text = BindProductStock(productID, ChooseColor.SelectedValue, Double.Parse(ChooseSize.SelectedValue));
         }
@@ -148,14 +145,14 @@ namespace SANTARA_Marketplace.Views
                 else
                 {
                     ShoppingCartController.AddToCart(user.UserID, StorageController.GetStorageID(productID, ChooseColor.SelectedValue, Double.Parse(ChooseSize.SelectedValue)));
+                    ScriptManager.RegisterStartupScript(this, GetType(), "CallMyFunction", "openModal();", true);
                 }
             }
-
         }
 
-        protected void BuyNow_Click(object sender, EventArgs e)
+        protected void CheckCart_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Views/ShoppingCartPage.aspx");
         }
     }
 }

@@ -33,6 +33,15 @@ namespace SANTARA_Marketplace.Views
         protected global::System.Web.UI.WebControls.Repeater ImageRepeater;
 
         /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
         /// ChooseColor control.
         /// </summary>
         /// <remarks>
@@ -105,15 +114,6 @@ namespace SANTARA_Marketplace.Views
         protected global::System.Web.UI.WebControls.Button AddToCart;
 
         /// <summary>
-        /// BuyNow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BuyNow;
-
-        /// <summary>
         /// ReviewRepeater control.
         /// </summary>
         /// <remarks>
@@ -121,5 +121,14 @@ namespace SANTARA_Marketplace.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater ReviewRepeater;
+
+        /// <summary>
+        /// CheckCart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CheckCart;
     }
 }

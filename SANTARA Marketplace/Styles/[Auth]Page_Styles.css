@@ -89,10 +89,11 @@ section {
     font-style: normal;
     font-variation-settings: "wdth" 100;
     color: var(--text-header-color);
-    margin: 0px 0px 72px;
+    margin: 0;
     width: fit-content;
     letter-spacing: -0.02em;
-    text-align: center
+    text-align: center;
+    margin: 0 0 72px 0;
 }
 
 .input-wrapper {

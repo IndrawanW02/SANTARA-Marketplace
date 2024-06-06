@@ -29,9 +29,9 @@ namespace SANTARA_Marketplace.Views
             {
                 BindCardData();
                 BindAdvertisementData();
-                manProductCount = ProductController.ManShoesCount();
-                womanProductCount = ProductController.WomanShoesCount();
-                kidProductCount = ProductController.KidShoesCount();
+                ManProductCountLbl.Text = ProductController.ManShoesCount().ToString() + " Produk";
+                WomanProductCountLbl.Text = ProductController.WomanShoesCount().ToString() + " Produk";
+                KidProductCountLbl.Text = ProductController.KidShoesCount().ToString() + " Produk";
             }
         }
 
@@ -48,58 +48,58 @@ namespace SANTARA_Marketplace.Views
             CardRepeater.DataBind();
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            HttpPostedFile postedFile = FileUpload1.PostedFile;
-            string filename = Path.GetFileName(postedFile.FileName);
-            string fileExtension = Path.GetExtension(filename);
+        //protected void Button1_Click(object sender, EventArgs e)
+        //{
+        //    HttpPostedFile postedFile = FileUpload1.PostedFile;
+        //    string filename = Path.GetFileName(postedFile.FileName);
+        //    string fileExtension = Path.GetExtension(filename);
 
-            if (fileExtension.ToLower().Equals(".jpg") || fileExtension.ToLower().Equals(".png"))
-            {
-                Stream stream = postedFile.InputStream;
-                BinaryReader binaryReader = new BinaryReader(stream);
-                byte[] imageBytes = binaryReader.ReadBytes((int)stream.Length);
+        //    if (fileExtension.ToLower().Equals(".jpg") || fileExtension.ToLower().Equals(".png"))
+        //    {
+        //        Stream stream = postedFile.InputStream;
+        //        BinaryReader binaryReader = new BinaryReader(stream);
+        //        byte[] imageBytes = binaryReader.ReadBytes((int)stream.Length);
 
-                string imageID;
-                ProductImage lastImage = db.ProductImages.ToList().LastOrDefault();
-                if (lastImage == null) imageID = "IM001";
-                else
-                {
-                    string lastId = lastImage.ImageID;
-                    int lastIdNum = Convert.ToInt32(lastId.Substring(2));
+        //        string imageID;
+        //        ProductImage lastImage = db.ProductImages.ToList().LastOrDefault();
+        //        if (lastImage == null) imageID = "IM001";
+        //        else
+        //        {
+        //            string lastId = lastImage.ImageID;
+        //            int lastIdNum = Convert.ToInt32(lastId.Substring(2));
 
-                    imageID = String.Format("IM{0:000}", lastIdNum + 1);
-                }
+        //            imageID = String.Format("IM{0:000}", lastIdNum + 1);
+        //        }
 
-                string ProductID = TextBox1.Text;
+        //        string ProductID = TextBox1.Text;
 
 
-                AdvertisementRepository advertisementRepository = new AdvertisementRepository();
-                String newID = "";
-                String lastID = advertisementRepository.GetLastAdvertisementID();
-                if (lastID == null)
-                {
-                    newID = "AD001";
-                }
-                else
-                {
-                    int IDnumber = Convert.ToInt32(lastID.Substring(2));
-                    IDnumber++;
-                    newID = String.Format(("AD{0:000}"), IDnumber);
-                }
+        //        //AdvertisementRepository advertisementRepository = new AdvertisementRepository();
+        //        //String newID = "";
+        //        //String lastID = advertisementRepository.GetLastAdvertisementID();
+        //        //if (lastID == null)
+        //        //{
+        //        //    newID = "AD001";
+        //        //}
+        //        //else
+        //        //{
+        //        //    int IDnumber = Convert.ToInt32(lastID.Substring(2));
+        //        //    IDnumber++;
+        //        //    newID = String.Format(("AD{0:000}"), IDnumber);
+        //        //}
 
-                DateTime StartDate = DateTime.Now;
-                DateTime EndDate = StartDate.AddDays(7);
-                advertisementRepository.AddAdvertisement(newID, ProductID, imageBytes, StartDate, EndDate);
-                //ProductImage image = ImageFactory.Create(imageID, ProductID, imageBytes);
-                //ImageRepository imgRepo = new ImageRepository();
-                //imgRepo.AddImage(image);
-            }
-            else
-            {
-                Label1.Text = "File can only be .jpg or .png";
-            }
-        }
+        //        //DateTime StartDate = DateTime.Now;
+        //        //DateTime EndDate = StartDate.AddDays(7);
+        //        //advertisementRepository.AddAdvertisement(newID, ProductID, imageBytes, StartDate, EndDate);
+        //        ProductImage image = ImageFactory.Create(imageID, ProductID, imageBytes);
+        //        ImageRepository imgRepo = new ImageRepository();
+        //        imgRepo.AddImage(image);
+        //    }
+        //    else
+        //    {
+        //        Label1.Text = "File can only be .jpg or .png";
+        //    }
+        //}
 
         protected void RedirectToProduct(string ProductID)
         {

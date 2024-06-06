@@ -42,22 +42,31 @@ namespace SANTARA_Marketplace.Views
         protected global::System.Web.UI.WebControls.ListItem itemlist;
 
         /// <summary>
-        /// ShoeTypeID control.
+        /// ShoeType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ShoeTypeID;
+        protected global::System.Web.UI.WebControls.DropDownList ShoeType;
 
         /// <summary>
-        /// StoreLocationID control.
+        /// default control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList StoreLocationID;
+        protected global::System.Web.UI.WebControls.ListItem @default;
+
+        /// <summary>
+        /// StoreLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList StoreLocation;
 
         /// <summary>
         /// MinPrice control.
@@ -85,6 +94,15 @@ namespace SANTARA_Marketplace.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ResetFilter;
+
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
         /// CardRepeater control.

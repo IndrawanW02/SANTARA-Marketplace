@@ -6,19 +6,36 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <section>
-        <div class="header">
-            <p class="title">< PENGIRIMAN</p>
-        </div>
+        <nav class="Page-Path">
+            <div>
+                <a href="HomePage.aspx" class="NavText">Beranda</a>
+                <p class="NavText">/</p>
+                <a href="ShoppingCartPage.aspx" class="NavText">Keranjang</a>
+                <p class="NavText">/</p>
+                <p class="NavText">Pengiriman</p>
+            </div>
+        </nav>
 
-        <div class="content">
-            <div class="CardContainer">
+        <div class="content-wrapper">
+            <div class="header">
+                <p class="title" id="back-cart" onclick="backToCart()"><span class="fe--arrow-left" id="back-button"></span> PENGIRIMAN</p>
+            </div>
+            <div class="content">
+                <div class="CardContainer">
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <div class="shipment-address">
+                                <div class="shipment-detail">
+                                    <h1>Alamat Pengiriman</h1>
+                                    <asp:TextBox ID="AddressBox" runat="server" CssClass="address-box" AutoPostBack="true" TextMode="MultiLine" Rows="1" Enabled="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</asp:TextBox>
+                                </div>
+                                <asp:Button ID="ChangeAddress" runat="server" CssClass="change-address" Text="ubah alamat" OnClick="ChangeAddress_Click" />
+                        </ContentTemplate>
 
-                <div class="shipment-address">
-                    <div class="shipment-detail">
-                        <h1>Alamat Pengiriman</h1>
-                        <asp:TextBox ID="AddressBox" runat="server" CssClass="address-box" TextMode="MultiLine" Rows="1" Enabled="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</asp:TextBox>
-                    </div>
-                    <asp:Button ID="ChangeAddress" runat="server" CssClass="change-address" Text="ubah alamat" />
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="ChangeAddress" EventName="Click" />
+                        </Triggers>
+                    </asp:UpdatePanel>
                 </div>
 
                 <asp:Repeater ID="CardRepeater" runat="server" OnItemDataBound="CardRepeater_ItemDataBound">
@@ -140,10 +157,11 @@
             </div>
         </div>
 
+
         <div class="modal" id="modal">
             <div class="modal-header">
-                <button data-close-modal class="close-button">&times;</button>
                 <div class="modal-title">Metode Pembayaran</div>
+                <button data-close-modal class="close-button">&times;</button>
             </div>
             <div class="payment-option">
                 <div class="payment-type">
@@ -193,7 +211,7 @@
                                 <div class="payment-logo"><span class="fa-solid--coins"></span></div>
                                 <p class="pay-option-name">Saldo</p>
                             </div>
-                            <asp:Label ID="SaldoUser" runat="server" Text="" CssClass="pay-status" ></asp:Label>
+                            <asp:Label ID="SaldoUser" runat="server" Text="" CssClass="pay-status"></asp:Label>
                         </div>
                     </asp:LinkButton>
                 </div>
@@ -208,6 +226,13 @@
 
         <div id="overlay"></div>
     </section>
+
+    <script>
+        function backToCart() {
+            window.location.href = "ShoppingCartPage.aspx";
+        }
+    </script>
+
     <script>
         function openModalFromCodeBehind() {
             const openModalButtons = document.querySelectorAll('.choose-payment');
@@ -256,7 +281,7 @@
                 if (item.id.includes("hfShipmentPrice")) {
                     var itemPrice = parseInt(item.value);
                     if (isNaN(itemPrice)) {
-                        console.log("NANNNN");
+                        console.log("NAN");
                     }
                     else {
                         totalShipmentPrice += itemPrice;
@@ -349,6 +374,12 @@
             $(this).parents('.dropdown').find('span').text($(this).text());
             setShipment(this);
         });
+    </script>
+
+    <script>
+        function focusAddressBox() {
+            document.getElementById('<%= AddressBox.ClientID %>').focus();
+        }
     </script>
 
 </asp:Content>

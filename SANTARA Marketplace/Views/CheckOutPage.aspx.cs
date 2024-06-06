@@ -237,5 +237,11 @@ namespace SANTARA_Marketplace.Views
                 ScriptManager.RegisterStartupScript(this, GetType(), "CallMyFunction", "openModalFromCodeBehind();", true);
             }
         }
+
+        protected void ChangeAddress_Click(object sender, EventArgs e)
+        {
+            AddressBox.Enabled = true;
+            ScriptManager.RegisterStartupScript(this, GetType(), "CallMyFunction", "focusAddressBox();", true);
+        }
     }
 }

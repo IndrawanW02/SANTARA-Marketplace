@@ -1,4 +1,4 @@
-﻿<%@ Page Title="SANTARA" Language="C#" MasterPageFile="~/Template/HeaderAndFooter.Master" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="SANTARA_Marketplace.Views.Home_Page" %>
+﻿<%@ Page Title="SANTARA" Language="C#" MasterPageFile="~/Template/HeaderAndFooter.Master" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="SANTARA_Marketplace.Views.Home_Page" MaintainScrollPositionOnPostback="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -29,7 +29,7 @@
             <div class="MostPopular">
                 <div class="best-seller-title">
                     <h1>BEST SELLER</h1>
-                    <p>Dapatkan tampilan yang tak tertandingi dengan sepatu favorit pelanggan kami - kembangkan gaya Anda dengan koleksi terbaik.</p>
+                    <p>Dapatkan tampilan yang tak tertandingi dengan sepatu favorit pelanggan kami.</p>
                 </div>
 
                 <div class="popular-shoes">
@@ -81,12 +81,18 @@
                     <div class="category-wrapper" id="man-wrapper">
                         <a href="PriaProductPage.aspx">
                             <div class="category-card">
-                                <div class="category-logo">
-                                    <img src="../Assets/Icons/ManIcon.png" />
+                                <div class="category-upper">
+                                    <div class="category-logo">
+                                        <img src="../Assets/Icons/ManIcon.png" />
+                                    </div>
                                 </div>
-                                <div class="category-product-info">
-                                    <p class="title">Sepatu Pria</p>
-                                    <p><%# manProductCount %> Produk</p>
+
+                                <div class="category-lower">
+                                    <div class="category-product-info">
+                                        <p class="title">Sepatu</p>
+                                        <p class="title">Pria</p>
+                                        <asp:Label ID="ManProductCountLbl" runat="server" Text="" CssClass="label-count"></asp:Label>
+                                    </div>
                                 </div>
                             </div>
                         </a>
@@ -94,12 +100,18 @@
                     <div class="category-wrapper" id="woman-wrapper">
                         <a href="WanitaProductPage.aspx">
                             <div class="category-card">
-                                <div class="category-logo">
-                                    <img src="../Assets/Icons/WomanIcon.png" />
+                                <div class="category-upper">
+                                    <div class="category-logo">
+                                        <img src="../Assets/Icons/WomanIcon.png" />
+                                    </div>
                                 </div>
-                                <div class="category-product-info">
-                                    <p class="title">Sepatu Wanita</p>
-                                    <p><%# womanProductCount%> Produk</p>
+
+                                <div class="category-lower">
+                                    <div class="category-product-info">
+                                        <p class="title">Sepatu</p>
+                                        <p class="title">Wanita</p>
+                                        <asp:Label ID="WomanProductCountLbl" runat="server" Text="" CssClass="label-count"></asp:Label>
+                                    </div>
                                 </div>
                             </div>
                         </a>
@@ -107,12 +119,18 @@
                     <div class="category-wrapper" id="kid-wrapper">
                         <a href="AnakProductPage.aspx">
                             <div class="category-card">
-                                <div class="category-logo">
-                                    <img src="../Assets/Icons/KidIcon.png" />
+                                <div class="category-upper">
+                                    <div class="category-logo">
+                                        <img src="../Assets/Icons/KidIcon.png" />
+                                    </div>
                                 </div>
-                                <div class="category-product-info">
-                                    <p class="title">Sepatu Anak-Anak</p>
-                                    <p><%# kidProductCount %> Produk</p>
+
+                                <div class="category-lower">
+                                    <div class="category-product-info">
+                                        <p class="title">Sepatu</p>
+                                        <p class="title">Anak-Anak</p>
+                                        <asp:Label ID="KidProductCountLbl" runat="server" Text="" CssClass="label-count"></asp:Label>
+                                    </div>
                                 </div>
                             </div>
                         </a>
@@ -123,10 +141,10 @@
     </div>
 
 
-    <asp:Label ID="Label1" runat="server" Text="BrowseImage"></asp:Label>
+    <%--<asp:Label ID="Label1" runat="server" Text="BrowseImage"></asp:Label>
     <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
     <asp:FileUpload ID="FileUpload1" runat="server" />
-    <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+    <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />--%>
 
 
 

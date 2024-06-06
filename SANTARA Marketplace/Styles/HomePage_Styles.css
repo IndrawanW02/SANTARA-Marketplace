@@ -2,6 +2,9 @@
 body {
     height: 100%;
     overflow-x: hidden;
+    background-image: url('../assets/images/santara-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 :root {
@@ -14,12 +17,12 @@ body {
 
 @font-face {
     font-family: 'oswald';
-    src: url('../fonts/oswald.ttf') format('truetype');
+    src: url('../assets/fonts/oswald.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'opensans';
-    src: url('../fonts/opensans.ttf') format('truetype');
+    src: url('../assets/fonts/opensans.ttf') format('truetype');
 }
 
 @font-face {
@@ -45,6 +48,7 @@ body {
     width: 80%;
     padding: 50px 0;
     border-radius: 16px;
+    margin: 80px 0;
 }
 
 #swiper1 .swiper-slide {
@@ -90,12 +94,14 @@ body {
     width: 10px;
     height: 10px;
     transition: all 0.3s ease-in-out;
+    background-color: #FFF;
+
 }
 
 #swiper1 .swiper-pagination-bullet-active {
     width: 24px;
     border-radius: 8px;
-    background-color: var(--accent-color);
+    background-color: #FFF;
 }
 
 .MostPopular {
@@ -103,8 +109,7 @@ body {
     display: flex;
     flex-direction: row;
     overflow: hidden;
-    margin: 100px 0px;
-    background-color: var(--secondary-color);
+    margin: 80px 0px;
 }
 
 .best-seller-title {
@@ -123,7 +128,7 @@ body {
     font-size: 6em;
     text-align: left;
     letter-spacing: 4px;
-    color: var(--primary-color);
+    color: #FFF;
     margin: 0px;
 }
 
@@ -166,7 +171,8 @@ body {
 .card-wrapper {
     padding: 20px 50px 20px 50px;
     background-color: white;
-    border-radius: 15px;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
 }
 
 .category-container {
@@ -184,7 +190,7 @@ body {
     font-size: 6em;
     text-align: center;
     letter-spacing: 4px;
-    color: #111736;
+    color: #FFF;
     margin: 0px 0px 80px 0px;
 }
 
@@ -192,28 +198,26 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
 }
 
 .category-wrapper {
-    width: 25%;
-    border-radius: 16px;
-    padding: 75px 20px;
+    width: 32%;
+    border-radius: 8px;
+    padding: 16px;
     box-shadow: rgba(0, 0, 0, 0.2) 4.08px 20.41px 27.21px;
+    box-sizing: border-box;
 }
 
-.category-wrapper#man-wrapper {
-    background: rgb(193,21,100);
-    background: linear-gradient(135deg, rgba(193,21,100,1) 0%, rgba(74,21,194,1) 100%);
+.category-wrapper a {
+    box-sizing: border-box;
 }
 
-.category-wrapper#woman-wrapper {
-    background: rgb(193,21,100);
-    background: linear-gradient(135deg, rgba(193,21,100,1) 0%, rgba(74,21,194,1) 100%);
-}
-
-.category-wrapper#kid-wrapper {
-    background: rgb(193,21,100);
-    background: linear-gradient(135deg, rgba(193,21,100,1) 0%, rgba(74,21,194,1) 100%);
+.category-wrapper#man-wrapper, .category-wrapper#woman-wrapper, .category-wrapper#kid-wrapper{
+    background: rgb(51,202,237);
+    background: -moz-linear-gradient(135deg, rgba(51,202,237,1) 0%, rgba(127,49,251,1) 100%);
+    background: -webkit-linear-gradient(135deg, rgba(51,202,237,1) 0%, rgba(127,49,251,1) 100%);
+    background: linear-gradient(135deg, rgba(51,202,237,1) 0%, rgba(127,49,251,1) 100%);
 }
 
 .category-card {
@@ -223,6 +227,10 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.category-upper {
+    margin-bottom: 36px;
 }
 
 .category-logo {
@@ -238,6 +246,12 @@ body {
 .category-logo img {
     clip-path: circle(50% at 50% 50%);
     background-color: white;
+}
+
+.category-product-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .category-product-info p {
@@ -256,14 +270,19 @@ body {
     text-align: center;
     letter-spacing: 2px;
     color: var(--primary-color);
+    white-space: normal;
+    margin: 0;
 }
 
-/*.Categories {
-    display: flex;
-    width: 80%;
-    justify-content: space-between;
-    gap: 20px;
-}*/
+.label-count {
+    font-family: 'opensans';
+    font-weight: 300;
+    font-size: 1.25em;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #FFF;
+    margin-top: 12px;
+}
 
 .Categories .CategoryNav {
     display: flex;
@@ -286,8 +305,8 @@ body {
 }
 
 .CategoryIcon img {
-    width: 100%; /* Make the image fill the width of its container */
-    height: auto; /* Maintain aspect ratio and adjust height accordingly */
+    width: 100%; 
+    height: auto; 
     display: block;
     clip-path: circle(50% at 50% 50%);
     background-color: #FFFFFF;

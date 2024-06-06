@@ -44,7 +44,7 @@ namespace SANTARA_Marketplace.Views
 
         private void BindTransactionHistory()
         {
-            List<Transaction> userTransactionList = TransactionController.GetUserTransaction(user.UserID);
+            List<Transaction> userTransactionList = TransactionController.GetUserTransaction(user.UserID).OrderByDescending(o => o.CreatedAt).ToList();
             TransactionHistoryRepeater.DataSource = userTransactionList;
             TransactionHistoryRepeater.DataBind();
         }

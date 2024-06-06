@@ -47,7 +47,7 @@ namespace SANTARA_Marketplace.Views
 
                 if (cartItem.Count == 0)
                 {
-                    CheckOutBtn.Visible = false;
+                    ScriptManager.RegisterStartupScript(this, GetType(), "CallMyFunction", "paymentDisplayNone();", true);
                 }
                 TotalPriceLbl.Text = GetUserTotalExpenses(user.UserID);
 
@@ -103,8 +103,14 @@ namespace SANTARA_Marketplace.Views
             cartItem = ShoppingCartController.GetUserShoppingCart(user.UserID);
             CardRepeater.DataSource = cartItem;
             CardRepeater.DataBind();
+            TransactionRepeater.DataSource = cartItem;
             TransactionRepeater.DataBind();
             TotalPriceLbl.Text = GetUserTotalExpenses(user.UserID);
+
+            if (cartItem.Count == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "CallMyFunction", "paymentDisplayNone();", true);
+            }
         }
     }
 }

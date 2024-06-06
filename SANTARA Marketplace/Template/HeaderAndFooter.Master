@@ -6,6 +6,7 @@
 <head runat="server">
     <title>Header and Footer</title>
     <link href="../Styles/HeaderAndFooter_Styles.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -16,7 +17,7 @@
                 <nav>
                     <div class="website-name-header">
                         <a href="../Views/HomePage.aspx">
-                            <img class="logo" src="../Assets/Images/santara-logo.svg" />
+                            <img class="logo" src="../Assets/Images/SANTARA-logo.png" />
                         </a>
                     </div>
                     <a href="../Views/CataloguePage.aspx">
@@ -33,10 +34,30 @@
                     </a>
                 </nav>
                 <div id="registration-info">
-                    <div class="wrapper">
-                        <asp:Image ID="UserProfilePic" runat="server" />
+                    <div class="profile-dropdown">
+                        <div class="profile-dropdown-button" onclick="toggle()">
+                            <div class="wrapper">
+                                <asp:Image ID="UserProfilePic" runat="server" />
+                            </div>
+                            <div class="username-wrapper">
+                                <asp:Label ID="Username" runat="server" Text="" CssClass="username"></asp:Label>
+                                <span class="fe--arrow-down"></span>
+                            </div>
+                        </div>
+
+                        <ul class="profile-dropdown-list">
+                            <li class="profile-dropdown-list-item" id="saldo">
+                                <p>Saldo User:</p>
+                                <asp:Label ID="UserBalanceLbl" runat="server" Text=""></asp:Label>
+                            </li>
+                            <li class="profile-dropdown-list-item">
+                                <asp:Button ID="TopUp" runat="server" Text="Top Up" OnClick="TopUp_Click"/>
+                            </li>
+                            <li class="profile-dropdown-list-item">
+                                <asp:Button ID="LogOut" runat="server" Text="Log Out" OnClick="LogOut_Click"/>
+                            </li>
+                        </ul>
                     </div>
-                    <asp:Label ID="Username" runat="server" Text="" CssClass="username"></asp:Label>
                     <asp:Button ID="SignInBtn" runat="server" Text="Log in" OnClick="SignInBtn_Click" Visible="false" />
                     <asp:Button ID="SignUpBtn" runat="server" Text="Sign Up" OnClick="SignUpBtn_Click" Visible="false" />
                 </div>
@@ -48,7 +69,7 @@
             <footer>
                 <div class="WebsiteCopyright">
                     <a class="website-name-footer" href="../Views/HomePage.aspx">
-                        <img class="logo" src="../Assets/Images/santara-logo.svg" />
+                        <img class="logo" src="../Assets/Images/SANTARA-logo.png" />
                     </a>
                     <h4>&copy;2024 SANTARA.</h4>
                 </div>
@@ -80,11 +101,28 @@
         </div>
 
         <script>
-            function addOutline() {
+            let profileDropDownList = document.querySelector(".profile-dropdown-list");
+            let btn = document.querySelector(".profile-dropdown-button");
+
+            const toggle = () => profileDropDownList.classList.toggle('active');
+
+            window.addEventListener("click", function (e) {
+                if (!btn.contains(e.target)) profileDropDownList.classList.remove("active");
+            })
+
+            function guestUser() {
+                var loggedIn = document.querySelector(".profile-dropdown");
+                loggedIn.classList.add("disabled");
+            }
+
+            function customer() {
+                var loggedIn = document.querySelector(".profile-dropdown");
+                loggedIn.classList.remove("disabled");
+
+                // add outline to user profile pic
                 var wrapperElement = document.querySelector('.wrapper');
-                console.log(wrapperElement);
                 wrapperElement.classList.add('active');
-            };
+            }
         </script>
     </form>
 </body>

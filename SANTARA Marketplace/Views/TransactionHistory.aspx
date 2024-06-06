@@ -1,82 +1,85 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Template/HeaderAndFooter.Master" AutoEventWireup="true" CodeBehind="TransactionHistory.aspx.cs" Inherits="SANTARA_Marketplace.Views.TransactionHistory" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Template/HeaderAndFooter.Master" AutoEventWireup="true" CodeBehind="TransactionHistory.aspx.cs" Inherits="SANTARA_Marketplace.Views.TransactionHistory" MaintainScrollPositionOnPostback="true"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../Styles/TransactionHistory_Styles.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
-    <nav class="Page-Path">
-        <div>
-            <a href="HomePage.aspx" class="NavText">Beranda</a>
-            <p class="NavText">/</p>
-            <p class="NavText">Transaksi</p>
-        </div>
-    </nav>
 
     <section>
-        <asp:Repeater ID="TransactionHistoryRepeater" runat="server" OnItemDataBound="TransactionHistoryRepeater_ItemDataBound">
-            <ItemTemplate>
-                <div class="transaction-card">
-                    <div class="transaction-header">
-                        <h1><%# Eval("CreatedAt", "{0:dd MMM yyyy}") %></h1>
-                        <asp:Label ID="TransactionItemCount" runat="server" Text="" CssClass="item-count-label"></asp:Label>
-                        <asp:Label ID="StatusLabel" runat="server" Text="" CssClass="status-label"></asp:Label>
-                    </div>
+        <nav class="Page-Path">
+            <div>
+                <a href="HomePage.aspx" class="NavText">Beranda</a>
+                <p class="NavText">/</p>
+                <p class="NavText">Transaksi</p>
+            </div>
+        </nav>
 
-                    <div class="transaction-content">
-                        <div class="transaction-items">
-                            <asp:HiddenField ID="TransactionID" runat="server" Value='<%# Eval("TransactionID") %>' />
-                            <asp:Repeater ID="TransactionItemRepeater" runat="server">
-                                <ItemTemplate>
-                                    <div class="product-card">
-                                        <div class="product-image">
-                                            <a href="ProductPage.aspx?ProductID=<%# Eval("Storage.Product.ProductID") %>">
-                                                <img alt="" src="<%# SANTARA_Marketplace.Template.HeaderAndFooter.GetImageBase64String(Eval("Storage.Product.ProductThumbnail")) %>" />
-                                            </a>
-                                        </div>
+        <div class="transaction-history-wrapper">
+            <asp:Repeater ID="TransactionHistoryRepeater" runat="server" OnItemDataBound="TransactionHistoryRepeater_ItemDataBound">
+                <ItemTemplate>
+                    <div class="transaction-card">
+                        <div class="transaction-header">
+                            <h1><%# Eval("CreatedAt", "{0:dd MMM yyyy}") %></h1>
+                            <asp:Label ID="TransactionItemCount" runat="server" Text="" CssClass="item-count-label"></asp:Label>
+                            <asp:Label ID="StatusLabel" runat="server" Text="" CssClass="status-label"></asp:Label>
+                        </div>
 
-                                        <div class="product-transaction-detail">
-                                            <div class="product-info">
-                                                <div class="product-info-header">
-                                                    <a href="ProductPage.aspx?ProductID=<%# Eval("Storage.Product.ProductID") %>">
-                                                        <p class="product-name"><%# Eval("Storage.Product.ProductName") %></p>
-                                                    </a>
-                                                    <div class="product-quantity-price">
-                                                        <p class="product-quantity"><%# Eval("Quantity") %> x</p>
-                                                        <p class="product-price"><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice(Eval("Storage.Product.ProductPrice")) %></p>
+                        <div class="transaction-content">
+                            <div class="transaction-items">
+                                <asp:HiddenField ID="TransactionID" runat="server" Value='<%# Eval("TransactionID") %>' />
+                                <asp:Repeater ID="TransactionItemRepeater" runat="server">
+                                    <ItemTemplate>
+                                        <div class="product-card">
+                                            <div class="product-image">
+                                                <a href="ProductPage.aspx?ProductID=<%# Eval("Storage.Product.ProductID") %>">
+                                                    <img alt="" src="<%# SANTARA_Marketplace.Template.HeaderAndFooter.GetImageBase64String(Eval("Storage.Product.ProductThumbnail")) %>" />
+                                                </a>
+                                            </div>
+
+                                            <div class="product-transaction-detail">
+                                                <div class="product-info">
+                                                    <div class="product-info-header">
+                                                        <a href="ProductPage.aspx?ProductID=<%# Eval("Storage.Product.ProductID") %>">
+                                                            <p class="product-name"><%# Eval("Storage.Product.ProductName") %></p>
+                                                        </a>
+                                                        <div class="product-quantity-price">
+                                                            <p class="product-quantity"><%# Eval("Quantity") %> x</p>
+                                                            <p class="product-price"><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice(Eval("Storage.Product.ProductPrice")) %></p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div>
+                                                        <p class="product-spec">Jenis Sepatu:  <%# Eval("Storage.Product.ProductType") %></p>
+                                                        <p class="product-spec">Warna:  <%# Eval("Storage.ProductColor") %></p>
+                                                        <p class="product-spec">Ukuran:  <%# Eval("Storage.ProductSize") %></p>
                                                     </div>
                                                 </div>
 
-                                                <div>
-                                                    <p class="product-spec">Jenis Sepatu:  <%# Eval("Storage.Product.ProductType") %></p>
-                                                    <p class="product-spec">Warna:  <%# Eval("Storage.ProductColor") %></p>
-                                                    <p class="product-spec">Ukuran:  <%# Eval("Storage.ProductSize") %></p>
+                                                <div class="manufacturer-info">
+                                                    <p class="product-spec"><%# Eval("Storage.Product.Store.StoreName") %></p>
                                                 </div>
                                             </div>
-
-                                            <div class="manufacturer-info">
-                                                <p class="product-spec"><%# Eval("Storage.Product.Store.StoreName") %></p>
-                                            </div>
                                         </div>
-                                    </div>
-                                </ItemTemplate>
-                            </asp:Repeater>
-                        </div>
-
-                        <div class="transaction-total-spent">
-                            <div class="transaction-total">
-                                <p>Total Belanja</p>
-                                <h1><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice(Eval("TotalTransaction")) %></h1>
+                                    </ItemTemplate>
+                                </asp:Repeater>
                             </div>
-                            <button type="button" data-modal-target="#modal" class="transaction-detail-button" onclick="openTransactionDetail(this);">
-                                <p>Lihat Detail Transaksi</p>
-                            </button>
-                        </div>
-                    </div>
 
-                </div>
-            </ItemTemplate>
-        </asp:Repeater>
+                            <div class="transaction-total-spent">
+                                <div class="transaction-total">
+                                    <p>Total Belanja</p>
+                                    <h1><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice(Eval("TotalTransaction")) %></h1>
+                                </div>
+                                <button type="button" data-modal-target="#modal" class="transaction-detail-button" onclick="openTransactionDetail(this);">
+                                    <p>Lihat Detail Transaksi</p>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
 
         <asp:HiddenField ID="SelectedTransaction" runat="server" />
 
@@ -158,7 +161,7 @@
                             <div id="header2">
                                 <p id="header-title">Rincian Pembayaran</p>
                                 <div class="detail-payment">
-                                    <p >Metode Pembayaran</p>
+                                    <p>Metode Pembayaran</p>
                                     <p><%# Eval("PaymentMethod") %></p>
                                 </div>
                             </div>
@@ -166,12 +169,12 @@
                             <asp:Repeater ID="DetailRepeater2" runat="server">
                                 <ItemTemplate>
                                     <div class="detail-payment">
-                                        <p ><%# Eval("Storage.Product.ProductName") %> ( <%# Eval("Quantity") %> pcs )</p>
+                                        <p><%# Eval("Storage.Product.ProductName") %> ( <%# Eval("Quantity") %> pcs )</p>
                                         <p><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice(Convert.ToInt32(Eval("Quantity")) * Convert.ToInt32(Eval("Storage.Product.ProductPrice"))) %></p>
                                     </div>
 
                                     <div class="detail-payment">
-                                        <p >Pengiriman Kurir <%# Eval("ShipmentMethod") %></p>
+                                        <p>Pengiriman Kurir <%# Eval("ShipmentMethod") %></p>
                                         <p><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice(Eval("ShipmentPrice")) %></p>
                                     </div>
                                 </ItemTemplate>

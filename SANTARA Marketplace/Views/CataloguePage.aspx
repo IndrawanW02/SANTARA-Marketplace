@@ -5,13 +5,15 @@
     <link href="../Styles/CataloguePage_Styles.css" rel="stylesheet" />
     <link href="../Styles/ProductCard_Styles.css" rel="stylesheet" />
 
-    <nav class="Page-Path">
-        <div>
-            <a href="HomePage.aspx" class="NavText">Beranda</a>
-            <p class="NavText">/</p>
-            <p class="NavText">Katalog</p>
-        </div>
-    </nav>
+    <section>
+        <nav class="Page-Path">
+            <div>
+                <a href="HomePage.aspx" class="NavText">Beranda</a>
+                <p class="NavText">/</p>
+                <p class="NavText">Katalog</p>
+            </div>
+        </nav>
+    </section>
 
     <div class="content">
         <div class="MostPopular">
@@ -21,11 +23,9 @@
             </div>
 
             <div class="popular-shoes">
-                <%-- card-wrapper --%>
                 <div class="card-wrapper">
                     <a href="PriaProductPage.aspx" class="see-all">Lihat Selengkapnya</a>
                     <div class="swiper mySwiper" id="swiper2">
-                        <%-- cardContainer --%>
                         <div class="swiper-wrapper">
                             <asp:Repeater ID="CardRepeaterMan" runat="server">
                                 <ItemTemplate>
@@ -64,17 +64,10 @@
         </div>
 
         <div class="MostPopular">
-            <div class="best-seller-title">
-                <h1>SEPATU WANITA</h1>
-                <p>"Elegan dan stylish untuk setiap kesempatan."</p>
-            </div>
-
-            <div class="popular-shoes">
-                <%-- card-wrapper --%>
-                <div class="card-wrapper">
+            <div class="popular-shoes" id="women-shoes">
+                <div class="card-wrapper" id="women-shoes-wrapper">
                     <a href="WanitaProductPage.aspx" class="see-all">Lihat Selengkapnya</a>
-                    <div class="swiper mySwiper">
-                        <%-- cardContainer --%>
+                    <div class="swiper mySwiper" id="women-shoes-swiper">
                         <div class="swiper-wrapper">
                             <asp:Repeater ID="CardRepeaterWoman" runat="server">
                                 <ItemTemplate>
@@ -110,6 +103,11 @@
                     </div>
                 </div>
             </div>
+
+            <div class="best-seller-title">
+                <h1>SEPATU WANITA</h1>
+                <p>"Elegan dan stylish untuk setiap kesempatan."</p>
+            </div>
         </div>
 
         <div class="MostPopular">
@@ -119,11 +117,9 @@
             </div>
 
             <div class="popular-shoes">
-                <%-- card-wrapper --%>
                 <div class="card-wrapper">
                     <a href="AnakProductPage.aspx" class="see-all">Lihat Selengkapnya</a>
                     <div class="swiper mySwiper">
-                        <%-- cardContainer --%>
                         <div class="swiper-wrapper">
                             <asp:Repeater ID="CardRepeaterKid" runat="server">
                                 <ItemTemplate>

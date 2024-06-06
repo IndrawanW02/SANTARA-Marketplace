@@ -1,5 +1,8 @@
 ﻿body {
-
+    overflow-x: hidden;
+    background-image: url('../assets/images/santara-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 :root {
@@ -23,57 +26,58 @@
 .Page-Path {
     display: flex;
     flex-direction: row;
-    background: #FFF;
-    border-bottom: 1px solid #BDBDBD;
-    border-top: 1px solid rgba(186, 186, 186, .5);
-    margin: 0px;
+    background: #EFF5EE;
+    border: 2px solid #EFF5EE;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 50px rgba(0, 0, 0, 0.1);
+    margin: 0px;
+    padding: 24px 50px;
+    border-radius: 12px;
 }
 
 .Page-Path div {
     display: flex;
     flex-direction: row;
-    padding: 12px 0px;
-    margin-left: 120px;
 }
 
 .NavText:not(:last-child) {
     font-family: 'opensans';
     font-optical-sizing: auto;
-    font-weight: 400;
-    font-size: 0.9em;
+    font-weight: 500;
+    font-size: 1em;
     font-style: italic;
     font-variation-settings: "wdth" 100;
-    color: rgba(168, 168, 168, .9);
+    color: var(--subtext-header-color);
     margin: 0px 16px 0px 0px;
 }
 
 .NavText:last-child {
     font-family: 'opensans';
     font-optical-sizing: auto;
-    font-weight: 700;
-    font-size: 0.9em;
+    font-weight: 800;
+    font-size: 1em;
     font-style: normal;
     font-variation-settings: "wdth" 100;
-    color: #000000;
+    color: var(--text-header-color);
     margin: 0px;
 }
 
 .NavText:hover:not(:last-child) {
-    transition: color 0.2s ease-in;
-    color: var(--accent-color);
+    transition: color 0.1s ease-in;
+    color: #33CAED;
 }
 
 section {
+    padding: 100px 100px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 120px 0;
+}
+
+.transaction-history-wrapper {
+    padding: 100px 50px;
 }
 
 .transaction-card {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -81,7 +85,7 @@ section {
 }
 
 .transaction-header {
-    padding: 16px 19px;
+    padding: 16px 24px;
     margin: 0 32px;
     box-sizing: border-box;
     width: fit-content;
@@ -92,7 +96,6 @@ section {
     background-color: #FFF;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    border: 1px solid #ddd;
     border-bottom: none;
 }
 
@@ -148,7 +151,6 @@ section {
     background-color: #FFF;
     box-sizing: border-box;
     border-radius: 8px;
-    border: 1px solid #ddd;
 }
 
 .transaction-items {
@@ -193,7 +195,7 @@ section {
 }
 
 .product-transaction-detail a, .product-transaction-detail p{
-    margin: 0;
+    
     text-decoration: none;
     color: var(--subtext-header-color);
 }
@@ -244,6 +246,7 @@ section {
     letter-spacing: 0.02em;
     white-space: nowrap;
     width: auto;
+    margin: 0px;
 }
 
 .product-price {
@@ -318,8 +321,8 @@ section {
     letter-spacing: -0.02em;
     margin: 0;
     white-space: nowrap;
-    width: 100%;
     text-align: center;
+    width: 100%;
 }
 
 .transaction-total-spent button {
@@ -504,7 +507,6 @@ table#ContentPlaceHolder1_TransactionFV {
 
 .detail-info #address-info {
     flex: 1;
-    text-align: justify;
 }
 
 .info-format {

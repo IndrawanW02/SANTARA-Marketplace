@@ -80,7 +80,10 @@
       <DependentUpon>SantaraDatabase.mdf</DependentUpon>
     </Content>
     <Content Include="Assets\Icons\alert-circle.svg" />
+    <Content Include="Assets\Icons\arrow-right.svg" />
     <Content Include="Assets\Icons\trash-can.svg" />
+    <Content Include="Assets\Images\3309587.jpg" />
+    <Content Include="Assets\Images\santara-background.jpg" />
     <Content Include="Assets\Images\BCA-logo.png" />
     <Content Include="Assets\Images\BRI-logo.png" />
     <Content Include="Assets\Images\DefaultProfileImage.png" />
@@ -99,6 +102,7 @@
     <Content Include="Assets\Icons\plus-icon.svg" />
     <Content Include="Assets\Images\RegisterIllustration.svg" />
     <Content Include="Assets\Icons\WomanIcon.png" />
+    <Content Include="Assets\Images\SANTARA-logo.png" />
     <Content Include="Assets\Images\SiCepat-logo.png" />
     <Content Include="Assets\Images\WomanProductHeader.png" />
     <Content Include="Model\SantaraModel.Context.tt">
@@ -118,7 +122,6 @@
     <Content Include="Styles\HeaderAndFooter_Styles.css" />
     <Content Include="Styles\HomePage_Styles.css" />
     <Content Include="Styles\ProductPage_Style.css" />
-    <Content Include="Styles\ShoppingCart_Style.css" />
     <Content Include="Styles\TransactionHistory_Styles.css" />
     <Content Include="Styles\[Auth]Page_Styles.css" />
     <Content Include="Styles\[Category]ProductPage_Styles.css" />

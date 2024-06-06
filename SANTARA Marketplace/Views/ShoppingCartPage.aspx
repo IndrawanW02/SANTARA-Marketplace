@@ -2,102 +2,116 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../styles/[paymentprocess]page_styles.css" rel="stylesheet" />
-    <%--<link href="../Styles/ShoppingCart_Style.css" rel="stylesheet" />--%>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <nav class="Page-Path">
-        <div>
-            <a href="HomePage.aspx" class="NavText">Beranda</a>
-            <p class="NavText">/</p>
-            <p class="NavText">Keranjang</p>
-        </div>
-    </nav>
-
-
-
     <section>
-        <div class="header">
-            <p class="title">KERANJANG ANDA <span><%= cartItem.Count %> produk</span></p>
-        </div>
+        <nav class="Page-Path">
+            <div>
+                <a href="HomePage.aspx" class="NavText">Beranda</a>
+                <p class="NavText">/</p>
+                <p class="NavText">Keranjang</p>
+            </div>
+        </nav>
 
-        <div class="content">
-            <div class="CardContainer">
-                <asp:Repeater ID="CardRepeater" runat="server" OnItemDataBound="CardRepeater_ItemDataBound">
-                    <ItemTemplate>
-                        <div class="ProductCard">
+        <div class="content-wrapper">
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <div class="header">
+                        <p class="title">KERANJANG ANDA <span><%= cartItem.Count %> produk</span></p>
+                    </div>
 
-                            <div class="ProductImageContainer">
-                                <a href="ProductPage.aspx?ProductID=<%# Eval("Storage.Product.ProductID") %>">
-                                    <img alt="" src="<%# SANTARA_Marketplace.Template.HeaderAndFooter.GetImageBase64String(Eval("Storage.Product.ProductThumbnail")) %>" />
-                                </a>
-                            </div>
+                    <div class="content">
+                        <div class="CardContainer">
+                            <asp:Repeater ID="CardRepeater" runat="server" OnItemDataBound="CardRepeater_ItemDataBound">
+                                <ItemTemplate>
+                                    <div class="ProductCard">
 
-                            <div class="ProductDescriptionContainer">
-                                <div class="ProductDescription">
-                                    <div class="desc-container">
-                                        <a href="ProductPage.aspx?ProductID=<%# Eval("Storage.Product.ProductID") %>">
-                                            <p class="ProductName"><%# Eval("Storage.Product.ProductName") %></p>
-                                        </a>
+                                        <div class="ProductImageContainer">
+                                            <a href="ProductPage.aspx?ProductID=<%# Eval("Storage.Product.ProductID") %>">
+                                                <img alt="" src="<%# SANTARA_Marketplace.Template.HeaderAndFooter.GetImageBase64String(Eval("Storage.Product.ProductThumbnail")) %>" />
+                                            </a>
+                                        </div>
 
-                                        <p class="product-spec">Jenis Sepatu:  <%# Eval("Storage.Product.ProductType") %></p>
-                                        <p class="product-spec">Warna:  <%# Eval("Storage.ProductColor") %></p>
-                                        <p class="product-spec">Ukuran:  <%# Eval("Storage.ProductSize") %></p>
-                                    </div>
+                                        <div class="ProductDescriptionContainer">
+                                            <div class="ProductDescription">
+                                                <div class="desc-container">
+                                                    <a href="ProductPage.aspx?ProductID=<%# Eval("Storage.Product.ProductID") %>">
+                                                        <p class="ProductName"><%# Eval("Storage.Product.ProductName") %></p>
+                                                    </a>
 
-                                    <div>
-                                        <p class="ProductPrice"><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice(Eval("Storage.Product.ProductPrice")) %></p>
-                                    </div>
-                                </div>
+                                                    <p class="product-spec">Jenis Sepatu:  <%# Eval("Storage.Product.ProductType") %></p>
+                                                    <p class="product-spec">Warna:  <%# Eval("Storage.ProductColor") %></p>
+                                                    <p class="product-spec">Ukuran:  <%# Eval("Storage.ProductSize") %></p>
+                                                </div>
 
-                                <div class="quantityContainer">
-                                    <div class="ShopName">
-                                        <p class="product-spec" id="store"><%# Eval("Storage.Product.Store.StoreName") %></p>
-                                    </div>
-                                    <div class="quantity-func">
-                                        <asp:Button ID="DeleteItemBtn" runat="server" CssClass="delete-button" Text="" OnClick="DeleteItemBtn_Click" CommandArgument='<%# Eval("CartID") %>' />
-                                        <div class="quantity">
-                                            <button type="button" class="minus-button" onclick="decreaseQuantityValue(this, '<%# Eval("CartID") %>')"></button>
-                                            <asp:TextBox ID="QuantityTB" runat="server" CssClass="quantity-box"  OnDataBinding="quantity_DataBinding" ReadOnly="true"></asp:TextBox>
-                                            <button type="button" class="plus-button" onclick="increaseQuantityValue(this, '<%# Eval("CartID") %>')"></button>
+                                                <div>
+                                                    <p class="ProductPrice"><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice(Eval("Storage.Product.ProductPrice")) %></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="quantityContainer">
+                                                <div class="ShopName">
+                                                    <p class="product-spec" id="store"><%# Eval("Storage.Product.Store.StoreName") %></p>
+                                                </div>
+                                                <div class="quantity-func">
+                                                    <asp:Button ID="DeleteItemBtn" runat="server" CssClass="delete-button" Text="" OnClick="DeleteItemBtn_Click" CommandArgument='<%# Eval("CartID") %>' />
+                                                    <div class="quantity">
+                                                        <button type="button" class="minus-button" onclick="decreaseQuantityValue(this, '<%# Eval("CartID") %>')"></button>
+                                                        <asp:TextBox ID="QuantityTB" runat="server" CssClass="quantity-box" OnDataBinding="quantity_DataBinding" ReadOnly="true"></asp:TextBox>
+                                                        <button type="button" class="plus-button" onclick="increaseQuantityValue(this, '<%# Eval("CartID") %>')"></button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </div>
-                    </ItemTemplate>
-                </asp:Repeater>
-            </div>
 
-            <div class="shopping-summary-container">
-                <h1>- Ringkasan Belanja -</h1>
-                <div class="shopping-summary">
-                    <div class="summary-item">
-                        <p class="summary-text"><%= cartItem.Count %> produk</p>
-                    </div>
-                    <asp:Repeater ID="TransactionRepeater" runat="server">
-                        <ItemTemplate>
-                            <div class="summary-item">
-                                <div class="product-info">
-                                    <p class="summary-text" id="summaryText<%# Eval("CartID") %>">
-                                        <%# Eval("Storage.Product.ProductName") %>  (<span class="quantity-span"><%# Eval("Quantity") %></span> pcs)
-                                    </p>
+                        <div class="shopping-summary-container">
+                            <h1>- Ringkasan Belanja -</h1>
+                            <div class="shopping-summary">
+                                <div class="summary-item">
+                                    <p class="summary-text"><%= cartItem.Count %> produk</p>
                                 </div>
-                                <p class="summary-text" id="itemTotal<%# Eval("StorageID") %>"><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice((Convert.ToInt32(Eval("Storage.Product.ProductPrice")) * Convert.ToInt32(Eval("Quantity")))) %></p>
+                                <asp:Repeater ID="TransactionRepeater" runat="server">
+                                    <ItemTemplate>
+                                        <div class="summary-item">
+                                            <div class="product-info">
+                                                <p class="summary-text" id="summaryText<%# Eval("CartID") %>">
+                                                    <%# Eval("Storage.Product.ProductName") %>  (<span class="quantity-span"><%# Eval("Quantity") %></span> pcs)
+                                                </p>
+                                            </div>
+                                            <p class="summary-text" id="itemTotal<%# Eval("StorageID") %>"><%# SANTARA_Marketplace.Template.HeaderAndFooter.GetPrice((Convert.ToInt32(Eval("Storage.Product.ProductPrice")) * Convert.ToInt32(Eval("Quantity")))) %></p>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                                <div class="summary-item total">
+                                    <div>
+                                        <p class="summary-text total">TOTAL</p>
+                                    </div>
+                                    <asp:Label ID="TotalPriceLbl" runat="server" Text="" CssClass="summary-text total"></asp:Label>
+                                </div>
                             </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                    <div class="summary-item total">
-                        <div>
-                            <p class="summary-text total">TOTAL</p>
+                            <asp:Button ID="CheckOutBtn" runat="server" Text="CheckOut" CssClass="checkout" OnClick="CheckOutBtn_Click" />
                         </div>
-                        <asp:Label ID="TotalPriceLbl" runat="server" Text="" CssClass="summary-text total"></asp:Label>
                     </div>
-                </div>
-                <asp:Button ID="CheckOutBtn" runat="server" Text="CheckOut" CssClass="checkout" OnClick="CheckOutBtn_Click" />
-            </div>
+                </ContentTemplate>
+
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="CheckOutBtn" EventName="Click" />
+                </Triggers>
+            </asp:UpdatePanel>
         </div>
     </section>
+
+    <script>
+        function paymentDisplayNone() {
+            var contentDiv = document.querySelector(".content");
+            contentDiv.classList.add("disabled");
+        }
+    </script>
 
     <script>
         function decreaseQuantityValue(button, cartID) {

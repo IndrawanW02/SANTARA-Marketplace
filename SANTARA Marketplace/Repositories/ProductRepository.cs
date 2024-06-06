@@ -40,7 +40,7 @@ namespace SANTARA_Marketplace.Repositories
             return (from p
                     in db.Products
                     where p.ProductCategory.Equals("Wanita")
-                    select p).Count();
+                    select p).ToList().Count();
         }
 
         public List<Product> GetManShoes()

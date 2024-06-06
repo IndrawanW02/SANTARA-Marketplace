@@ -1,7 +1,9 @@
 ﻿body {
     margin: 0;
     padding: 0;
-    background-color: #f5f5fa;
+    background-image: url('../assets/images/santara-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 :root {
@@ -10,6 +12,10 @@
     --accent-color: #4A15C2;
     --text-header-color: #000;
     --subtext-header-color: #6D6D6D;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 a {
@@ -37,60 +43,61 @@ a {
     src: url('../assets/fonts/sourceserif4.ttf') format('truetype');
 }
 
+section {
+    padding: 100px 100px;
+    display: flex;
+    flex-direction: column;
+}
+
 .Page-Path {
     display: flex;
     flex-direction: row;
-    background: #FFF;
-    border-bottom: 1px solid #BDBDBD;
-    border-top: 1px solid rgba(186, 186, 186, .5);
-    margin: 0px;
+    background: #EFF5EE;
+    border: 2px solid #EFF5EE;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 50px rgba(0, 0, 0, 0.1);
+    margin: 0px;
+    padding: 24px 50px;
+    border-radius: 12px;
 }
 
 .Page-Path div {
     display: flex;
     flex-direction: row;
-    padding: 12px 0px;
-    margin-left: 120px;
 }
 
 .NavText:not(:last-child) {
     font-family: 'opensans';
     font-optical-sizing: auto;
-    font-weight: 400;
-    font-size: 0.9em;
+    font-weight: 500;
+    font-size: 1em;
     font-style: italic;
-    font-variation-settings: "wdth";
-    color: rgba(168, 168, 168, .9);
+    font-variation-settings: "wdth" 100;
+    color: var(--subtext-header-color);
     margin: 0px 16px 0px 0px;
 }
 
 .NavText:last-child {
     font-family: 'opensans';
     font-optical-sizing: auto;
-    font-weight: 700;
-    font-size: 0.9em;
+    font-weight: 800;
+    font-size: 1em;
     font-style: normal;
-    font-variation-settings: "wdth";
-    color: #000000;
+    font-variation-settings: "wdth" 100;
+    color: var(--text-header-color);
     margin: 0px;
 }
 
 .NavText:hover:not(:last-child) {
-    transition: color 0.2s ease-in;
-    color: var(--accent-color);
+    transition: color 0.1s ease-in;
+    color: #33CAED;
 }
 
-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin: 120px 0;
+.content-wrapper {
+    padding: 100px 50px;
 }
 
 .header {
-    width: 80%;
+    width: 100%;
     display: flex;
     align-items: center;
     margin-bottom: 36px;
@@ -103,9 +110,12 @@ section {
     font-size: 3.5em;
     font-style: normal;
     font-variation-settings: "wdth";
-    color: var(--text-header-color);
+    color: #FFF;
     letter-spacing: 0.02em;
     margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .title span {
@@ -115,21 +125,46 @@ section {
     font-size: 0.5em;
     font-style: normal;
     font-variation-settings: "wdth";
-    color: var(--subtext-header-color);
+    color: #E2CDB2;
     letter-spacing: 0.02em;
     margin-left: 24px;
 }
 
+.title#back-cart {
+    cursor: pointer;
+}
+
+.title span#back-button {
+    margin: 0 24px 0 0;
+}
+
+.fe--arrow-left {
+    display: inline-block;
+    width: 2.5em;
+    height: 2.5em;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' fill-rule='evenodd' d='m15 4l2 2l-6 6l6 6l-2 2l-8-8z'/%3E%3C/svg%3E");
+    background-color: #FFF;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+
 .content {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 10px;
+}
+
+.content.disabled {
+    display: none;
 }
 
 .CardContainer {
-    width: 55%;
+    width: 62.5%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -161,6 +196,7 @@ section {
     width: 100%;
     height: 100%;
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 50px rgba(0, 0, 0, 0.1);
 }
 
 .ProductDescriptionContainer {
@@ -168,7 +204,7 @@ section {
     flex-direction: column;
     justify-content: space-between;
     flex: 1;
-    padding: 0px 16px;
+    padding: 0px 16px 0px 32px;
     box-sizing: border-box;
 }
 
@@ -230,17 +266,20 @@ section {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .product-spec#store {
     font-weight: 300;
+    text-decoration: underline;
 }
 
 .quantity-func {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 35%;
+    justify-content: space-between;
+    width: 55%;
+    max-width: 200px;
     height: 100%;
 }
 
@@ -251,13 +290,14 @@ section {
     justify-content: space-between;
     border: 0.5px solid rgba(0, 0, 0, .2);
     padding: 6px;
-    max-width: 70%;
+    flex: 1;
+    max-width: 145px;
     box-sizing: border-box;
 }
 
 /* Styling for quantity buttons and textbox */
 .delete-button {
-    width: 30px;
+    width: 20%;
     min-height: 100%;
     background: url('../assets/icons/trash-can.svg') no-repeat center;
     background-size: 25px 25px;
@@ -287,7 +327,7 @@ section {
 }
 
 .minus-button:hover, .plus-button:hover {
-    background-color: #0056b3;
+    background-color: #33CAED;
 }
 
 .quantity-box {
@@ -374,7 +414,7 @@ section {
 .checkout, .choose-payment {
     width: 100%;
     height: 50px;
-    background-color: #4A15C2;
+    background-color: #33CAED;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -390,7 +430,7 @@ section {
 
 .checkout:hover, .choose-payment:hover {
     transition: all 0.2s ease-in;
-    background-color: #0056b3;
+    background-color: #05AED5;
 }
 
 
@@ -429,11 +469,12 @@ section {
 }
 
 .address-box {
-    width: 80%;
+    width: 100%;
     flex: 1;
-    box-sizing: border-box;
     padding: 0px;
+    box-sizing: border-box;
     background-color: transparent;
+    border: none;
     
     font-family: 'inter';
     font-optical-sizing: auto;
@@ -446,7 +487,6 @@ section {
    
     line-height: 1.2;
     overflow: hidden;
-    vertical-align: central;
     white-space: pre-wrap;
     word-wrap: break-word;
     resize: none;
@@ -524,7 +564,8 @@ section {
     padding: 10px 15px;
     display: flex;
     align-items: center;
-    border-bottom: 0.5px solid rgba(0, 0, 0, .4);
+    justify-content: space-between;
+    border-bottom: 0.5px solid #ddd;
     background-color: #FFF;
     position: sticky;
     top: 0;
@@ -535,17 +576,17 @@ section {
     border: none;
     outline: none;
     background: none;
-    font-size: 2.5em;
-    color: rgba(0, 0, 0, .6);
+    font-size: 3em;
+    color: rgba(0, 0, 0, 1);
 }
 
 .modal-title {
-    font-family: 'opensans';
+    font-family: 'sourceserif4';
     font-optical-sizing: auto;
     font-weight: 700;
-    font-size: 1.5em;
+    font-size: 2em;
     font-style: normal;
-    color: rgba(0, 0, 0, .6);
+    color: rgba(0, 0, 0, 1);
     letter-spacing: -0.02em;
     margin-left: 12px;
 }
@@ -564,13 +605,12 @@ section {
 
 .payment-type h1 {
     margin: 12px 0;
-    font-family: 'inter';
+    font-family: 'opensans';
     font-optical-sizing: auto;
-    font-weight: 600;
-    font-size: 1.5em;
+    font-weight: 700;
+    font-size: 1.25em;
     font-style: normal;
     color: var(--text-header-color);
-    font-size: 1.5em;
     letter-spacing: -0.02em;
 }
 
