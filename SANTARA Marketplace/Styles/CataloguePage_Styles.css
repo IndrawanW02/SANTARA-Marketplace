@@ -1,0 +1,236 @@
+﻿body {
+    overflow-x: hidden;
+    background-image: url('../assets/images/santara-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+:root {
+    --primary-color: #ECE6FA;
+    --secondary-color: #606687;
+    --accent-color: #4A15C2;
+    --text-header-color: #000;
+    --subtext-header-color: #6D6D6D;
+}
+
+@font-face {
+    font-family: 'opensans';
+    src: url('../assets/fonts/opensans.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'oswald';
+    src: url('../assets/fonts/oswald.ttf') format('truetype');
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 100px;
+}
+
+.Page-Path {
+    display: flex;
+    flex-direction: row;
+    background: #EFF5EE;
+    border: 2px solid #EFF5EE;
+    margin: 0px;
+    padding: 24px 50px;
+    border-radius: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 50px rgba(0, 0, 0, 0.1);
+}
+
+.Page-Path div {
+    display: flex;
+    flex-direction: row;
+}
+
+.NavText:not(:last-child) {
+    font-family: 'opensans';
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 1em;
+    font-style: italic;
+    font-variation-settings: "wdth" 100;
+    color: var(--subtext-header-color);
+    margin: 0px 16px 0px 0px;
+}
+
+.NavText:last-child {
+    font-family: 'opensans';
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-size: 1em;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    color: var(--text-header-color);
+    margin: 0px;
+}
+
+.NavText:hover:not(:last-child) {
+    transition: color 0.1s ease-in;
+    color: #33CAED;
+}
+
+.content {
+    padding: 0px;
+}
+
+.product-category-content {
+    padding: 0 120px 0px 120px;
+    margin-bottom: 120px;
+}
+
+.category-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    margin-bottom: 36px;
+}
+
+.category-name {
+    width: 400px;
+    height: 70px;
+    clip-path: polygon(0 0, 100% 0%, 70% 100%, 0 100%);
+    display: flex;
+    align-items: center;
+    background: linear-gradient( to right, rgb(0 0 0 / 0.4), rgb(0 0 0 / 0));
+    background-color: #BD4545;
+    border-radius: 6px;
+    padding: 12px 24px;
+    filter: url('#flt_tag');
+}
+
+.category-name h1 {
+    margin: 0;
+    font-family: 'oswald';
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 3em;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    letter-spacing: 0.1em;
+    color: white;
+}
+
+.category-header a {
+    font-family: 'opensans';
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 24px;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    text-decoration: underline;
+    align-content: end;
+    cursor: pointer;
+}
+
+.flt_svg {
+    visibility: hidden;
+    position: absolute;
+    width: 0px;
+    height: 0px;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    overflow-x: auto;
+    gap: 20px;
+}
+
+.MostPopular {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    margin: 150px 0px;
+}
+
+.best-seller-title {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 0px 150px;
+}
+
+.best-seller-title h1 {
+    font-family: 'oswald';
+    font-weight: 700;
+    font-size: 6em;
+    text-align: left;
+    letter-spacing: 4px;
+    color: var(--primary-color);
+    margin: 20px 0px;
+}
+
+.best-seller-title p {
+    font-family: 'opensans';
+    font-weight: 500;
+    font-size: 1.25em;
+    text-align: left;
+    font-style: italic;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+}
+
+.see-all {
+    text-decoration: underline;
+    color: #460F9D;
+    font-family: 'opensans';
+    font-weight: 400;
+    font-size: 1.25em;
+    text-align: left;
+    font-style: normal;
+    letter-spacing: -0.02em;
+    margin: 5px 5px;
+}
+
+.popular-shoes {
+    width: 100%;
+    padding: 50px 0px 50px 20px;
+    overflow: hidden;
+}
+
+.popular-shoes#women-shoes {
+    padding: 50px 20px 50px 0;
+}
+
+.swiper {
+    width: 100%;
+    padding: 25px 0px 25px 0px;
+}
+
+.swiper-wrapper {
+    padding: 0px 5px;
+}
+
+.swiper-slide {
+    position: relative;
+    width: auto;
+    height: 100%;
+    border-radius: 16px;
+    margin-right: 25px;
+}
+
+.card-wrapper {
+    padding: 20px 50px 20px 50px;
+    background-color: white;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+.card-wrapper#women-shoes-wrapper {
+    border-radius: 0;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}

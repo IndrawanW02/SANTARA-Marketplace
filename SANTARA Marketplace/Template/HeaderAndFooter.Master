@@ -5,46 +5,125 @@
 <html>
 <head runat="server">
     <title>Header and Footer</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="../Styles/HeaderAndFooter_Styles.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
-<link href="../Styles/HeaderAndFooter_Styles.css" rel="stylesheet" />
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div>
             <header>
-                <h1 class="open-sans-title">SANTARA.</h1>
-
                 <nav>
-                    <div id="shopItem">
-                        <span class="maki--shoe"></span>
-                        <span class="lucide--shopping-basket"></span>
-                        <span class="basil--invoice-solid"></span>
+                    <div class="website-name-header">
+                        <a href="../Views/HomePage.aspx">
+                            <img class="logo" src="../Assets/Images/SANTARA-logo.png" />
+                        </a>
                     </div>
-                    <div class="separator"></div>
-
-                    <span class="mdi--shop" id="storeItem"></span>
-
-                    <div class="separator"></div>
-                    <div id="registrationItem">
-                        <h3>Sign in</h3>
-                        <h3>Sign Up</h3>
-                    </div>
+                    <a href="../Views/CataloguePage.aspx">
+                        <p class="nav-text">Produk</p>
+                    </a>
+                    <a href="../Views/ShoppingCartPage.aspx">
+                        <p class="nav-text">Keranjang</p>
+                    </a>
+                    <a href="../Views/TransactionHistory.aspx">
+                        <p class="nav-text">Transaksi</p>
+                    </a>
+                    <a href="#">
+                        <p class="nav-text">MyStore</p>
+                    </a>
                 </nav>
+                <div id="registration-info">
+                    <div class="profile-dropdown">
+                        <div class="profile-dropdown-button" onclick="toggle()">
+                            <div class="wrapper">
+                                <asp:Image ID="UserProfilePic" runat="server" />
+                            </div>
+                            <div class="username-wrapper">
+                                <asp:Label ID="Username" runat="server" Text="" CssClass="username"></asp:Label>
+                                <span class="fe--arrow-down"></span>
+                            </div>
+                        </div>
+
+                        <ul class="profile-dropdown-list">
+                            <li class="profile-dropdown-list-item" id="saldo">
+                                <p>Saldo User:</p>
+                                <asp:Label ID="UserBalanceLbl" runat="server" Text=""></asp:Label>
+                            </li>
+                            <li class="profile-dropdown-list-item">
+                                <asp:Button ID="TopUp" runat="server" Text="Top Up" OnClick="TopUp_Click"/>
+                            </li>
+                            <li class="profile-dropdown-list-item">
+                                <asp:Button ID="LogOut" runat="server" Text="Log Out" OnClick="LogOut_Click"/>
+                            </li>
+                        </ul>
+                    </div>
+                    <asp:Button ID="SignInBtn" runat="server" Text="Log in" OnClick="SignInBtn_Click" Visible="false" />
+                    <asp:Button ID="SignUpBtn" runat="server" Text="Sign Up" OnClick="SignUpBtn_Click" Visible="false" />
+                </div>
             </header>
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
 
             <footer>
-                <h1>this is a footer</h1>
+                <div class="WebsiteCopyright">
+                    <a class="website-name-footer" href="../Views/HomePage.aspx">
+                        <img class="logo" src="../Assets/Images/SANTARA-logo.png" />
+                    </a>
+                    <h4>&copy;2024 SANTARA.</h4>
+                </div>
+
+                <div class="FooterContent">
+                    <div class="Customer">
+                        <p class="footer-header">Customer</p>
+                        <p class="footer-subheader">Buyer</p>
+                        <p class="footer-subheader">Seller</p>
+                    </div>
+
+                    <div class="FurtherInformation">
+                        <p class="footer-header">Further Informations</p>
+                        <p class="footer-subheader">Terms & Conditions</p>
+                        <p class="footer-subheader">Privacy Policy</p>
+                    </div>
+
+                    <div class="SocialMedia">
+                        <p class="footer-header">Follow Us</p>
+                        <div id="socialMediaList">
+                            <span class="basil--instagram-outline"></span>
+                            <span class="bi--twitter-x"></span>
+                            <span class="akar-icons--facebook-fill"></span>
+                        </div>
+                    </div>
+                </div>
+
             </footer>
         </div>
+
+        <script>
+            let profileDropDownList = document.querySelector(".profile-dropdown-list");
+            let btn = document.querySelector(".profile-dropdown-button");
+
+            const toggle = () => profileDropDownList.classList.toggle('active');
+
+            window.addEventListener("click", function (e) {
+                if (!btn.contains(e.target)) profileDropDownList.classList.remove("active");
+            })
+
+            function guestUser() {
+                var loggedIn = document.querySelector(".profile-dropdown");
+                loggedIn.classList.add("disabled");
+            }
+
+            function customer() {
+                var loggedIn = document.querySelector(".profile-dropdown");
+                loggedIn.classList.remove("disabled");
+
+                // add outline to user profile pic
+                var wrapperElement = document.querySelector('.wrapper');
+                wrapperElement.classList.add('active');
+            }
+        </script>
     </form>
 </body>
 </html>

@@ -1,0 +1,158 @@
+﻿using SANTARA_Marketplace.Controllers;
+using SANTARA_Marketplace.Handlers;
+using SANTARA_Marketplace.Model;
+using SANTARA_Marketplace.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace SANTARA_Marketplace.Views
+{
+    public partial class ProductPage : System.Web.UI.Page
+    {
+        String productID = null;
+        public Product product = null;
+        public List<Storage> productVariations = null;
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            productID = Request.QueryString["ProductID"];
+            if (productID == null)
+            {
+                Response.Redirect("~/Views/HomePage.aspx");
+            }
+
+            if (!IsPostBack)
+            {
+                product = ProductController.GetProductByID(productID);
+                productVariations = StorageController.GetProductVariation(productID);
+
+                BindImageData(productID);
+                BindProductColorVariations(productID);
+                BindProductSizeVariations(productID, ChooseColor.SelectedValue);
+
+                stock.Text = BindProductStock(productID, ChooseColor.SelectedValue, Double.Parse(ChooseSize.SelectedValue));
+                BindProductReview(productID);
+
+                productPageNav.HRef = "~/Views/" + product.ProductCategory + "ProductPage.aspx";
+                Page.DataBind();
+            }
+        }
+
+        private void BindImageData(String ProductID)
+        {
+            List<ProductImage> productImages = ImageController.GetProductImages(ProductID);
+            ImageRepeater.DataSource = productImages;
+            ImageRepeater.DataBind();
+        }
+
+        private void BindProductColorVariations(String ProductID)
+        {
+            List<String> productColor = StorageController.GetProductColorVariations(ProductID);
+            ChooseColor.DataSource = productColor;
+            ChooseColor.DataBind();
+        }
+
+        private void BindProductSizeVariations(String ProductID, String ProductColor)
+        {
+            List<double> productSizes = StorageController.GetProductAvailableSizes(ProductID, ProductColor);
+            ChooseSize.DataSource = productSizes;
+            ChooseSize.DataBind();
+        }
+
+        private string BindProductStock(String ProductID, String ProductColor, double ProductSize)
+        {
+            AddToCart.Enabled = true;
+            if (StorageController.GetProductStock(ProductID, ProductColor, ProductSize) == 0)
+            {
+                AddToCart.Enabled = false;
+                ScriptManager.RegisterStartupScript(this, GetType(), "CallMyFunction", "disableButton();", true);
+
+                return "Tidak Tersedia";
+            }
+            return StorageController.GetProductStock(ProductID, ProductColor, ProductSize).ToString();
+        }
+
+        private void BindProductReview(String ProductID)
+        {
+            List<Rating> productReview = RatingController.GetProductReview(ProductID);
+            ReviewRepeater.DataSource = productReview;
+            ReviewRepeater.DataBind();
+        }
+
+        protected void ChooseColor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            BindProductSizeVariations(productID, ChooseColor.SelectedValue);
+            stock.Text = BindProductStock(productID, ChooseColor.SelectedValue, Double.Parse(ChooseSize.SelectedValue));
+        }
+
+        protected void ChooseSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            stock.Text = BindProductStock(productID, ChooseColor.SelectedValue, Double.Parse(ChooseSize.SelectedValue));
+        }
+
+        protected bool IsColorChoosen()
+        {
+            if (string.IsNullOrEmpty(ChooseColor.SelectedValue))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        protected bool IsSizeChoosen()
+        {
+            if (string.IsNullOrEmpty(ChooseSize.SelectedValue))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        protected void AddToCard_Click(object sender, EventArgs e)
+        {
+            if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
+            {
+                Response.Redirect("~/Views/LoginPage.aspx");
+            }
+            else
+            {
+                User user;
+                if (Session["user"] == null)
+                {
+                    var id = Request.Cookies["user_cookie"].Values;
+                    user = UserController.GetUserByID(id.ToString());
+                    Session["user"] = user;
+                }
+                else
+                {
+                    user = (User)Session["user"];
+                }
+
+
+                if (IsColorChoosen() == false)
+                {
+                    ChooseColorErr.Text = "Pilihlah opsi warna yang sesuai dengan preferensi Anda.";
+                }
+                else if (IsSizeChoosen() == false)
+                {
+                    ChooseSizeErr.Text = "Pilihlah opsi ukuran yang sesuai dengan preferensi Anda.";
+                }
+                else
+                {
+                    ShoppingCartController.AddToCart(user.UserID, StorageController.GetStorageID(productID, ChooseColor.SelectedValue, Double.Parse(ChooseSize.SelectedValue)));
+                    ScriptManager.RegisterStartupScript(this, GetType(), "CallMyFunction", "openModal();", true);
+                }
+            }
+        }
+
+        protected void CheckCart_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/ShoppingCartPage.aspx");
+        }
+    }
+}
