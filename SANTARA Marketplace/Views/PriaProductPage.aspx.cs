@@ -79,7 +79,6 @@ namespace SANTARA_Marketplace.Views
                     break;
             }
 
-            // Bind data yang sudah difilter dan disortir ke kontrol tampilan data (misalnya GridView, Repeater, dll.)
             CardRepeater.DataSource = products;
             CardRepeater.DataBind();
         }

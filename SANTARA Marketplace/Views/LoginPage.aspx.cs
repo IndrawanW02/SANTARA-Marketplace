@@ -29,7 +29,6 @@ namespace SANTARA_Marketplace.Views
             String Status = "";
             String Username = UsernameTB.Text;
             String Password = UserPasswordTB.Text;
-            //bool isRemember = RememberMeCB.Checked;
 
             String usernameStatus = UserAuthController.CheckUsername(Username);
             String passwordStatus = UserAuthController.CheckPassword(Password);

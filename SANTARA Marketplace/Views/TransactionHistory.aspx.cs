@@ -96,11 +96,6 @@ namespace SANTARA_Marketplace.Views
             }
         }
 
-        protected void TransactionFV_DataBound(object sender, EventArgs e)
-        {
-
-        }
-
         protected void DetailRepeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)

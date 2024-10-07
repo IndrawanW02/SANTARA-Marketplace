@@ -2,7 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../Styles/[PaymentProcess]Page_Styles.css" rel="stylesheet" />
-    <%--<script src="../Script/Shipment.js"></script>--%>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <section>

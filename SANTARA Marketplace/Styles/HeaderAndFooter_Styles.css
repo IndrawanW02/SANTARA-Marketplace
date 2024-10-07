@@ -245,7 +245,6 @@ input#LogOut:hover, input#TopUp:hover {
 }
 
 .wrapper {
-    /*margin-right: 24px;*/
     display: flex;
     align-items: center;
 }
@@ -255,7 +254,6 @@ input#LogOut:hover, input#TopUp:hover {
     align-items: center;
     width: 40px;
     height: 40px;
-    /*margin: 0px 24px 0px 24px;*/
     clip-path: circle(50% at 50% 50%);
     background: #FFF;
     padding: 1.5px;

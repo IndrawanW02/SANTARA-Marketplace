@@ -43,8 +43,6 @@ namespace SANTARA_Marketplace.Handlers
             AdvertisementRepository advertisementRepository = new AdvertisementRepository();
             DateTime StartDate = DateTime.Now;
             DateTime EndDate = StartDate.AddDays(7);
-
-            //advertisementRepository.AddAdvertisement(GenerateAdvertisementID, ProductID)
         }
 
 
