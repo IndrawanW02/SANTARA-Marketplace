@@ -140,14 +140,6 @@
         </div>
     </div>
 
-
-    <%--<asp:Label ID="Label1" runat="server" Text="BrowseImage"></asp:Label>
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-    <asp:FileUpload ID="FileUpload1" runat="server" />
-    <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />--%>
-
-
-
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 

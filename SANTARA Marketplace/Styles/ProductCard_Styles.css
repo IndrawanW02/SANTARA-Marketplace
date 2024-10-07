@@ -46,8 +46,8 @@ a {
 }
 
 .ProductImageContainer img {
-    width: 100%; /* Make the image fill the width of its container */
-    height: 100%; /* Maintain aspect ratio and adjust height accordingly */
+    width: 100%; 
+    height: 100%; 
 }
 
 .ProductDescriptionContainer {
@@ -79,7 +79,7 @@ a {
 
 .ProductRating {
     display: flex;
-    align-items: center; /* Vertical center alignment */
+    align-items: center;
     margin: 0 0 6px 0;
 }
 
